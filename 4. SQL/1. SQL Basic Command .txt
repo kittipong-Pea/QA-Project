@@ -1,0 +1,111 @@
+SQL Command
+
+create database
+
+- create database name ;
+
+ใช้ _ เเทน space ba
+; ใช้จบประโยคเสมอ
+
+ลบ
+- drop datadase name;
+- drop table tablename;
+
+ใช้
+- use datadase name;
+
+กดใช้เสร็จเเล้วเลือก
+- select database();
+
+******************************************************************************
+
+Create table
+
+create table tablename
+(
+columename datatype,
+columename datatype
+);
+
+- ALTER TABLE ... ADD  ใช้เวลาสร้าง table เเล้วอยาก add เพิ่ม
+
+******************************************************************************
+
+show tables
+
+- show tables;
+- show columns from tablename;
+- desc tablename ; นิยมเพราะสั้น
+
+*****************************************************************************
+
+Insert Data
+
+insert into ชื่อ table(collum1,collum2)
+values('....1',....2);
+
+*****************************************************************************
+
+NOT NULL 
+
+EX
+create tablename (
+name vacha(100) notnull,
+age int notnull
+);
+
+*****************************************************************************
+
+Default หมายถึง การให้ ค่า ที่จะเข้ามา ไม่เเสดง เป็น null เเต่จะให้เป็นค่าที่ set เอง
+
+Defalut'ข้อความที่เเดง'
+EX
+
+create table people(
+first_name char(20) Defalut 'notfound',
+last_name char(20) Defalut'0',
+age int
+);
+
+*****************************************************************************
+
+Primary Key
+FOREIGN KEY
+
+EX
+create tablename(
+first_name vashar(100),
+last_name vachar(100),
+age int,
+id int notnull  ต้องเป็น not null เท่านั้น
+primary key(id)
+);
+
+EX2
+
+CREATE TABLE Rentals (
+	RentalID INT PRIMARY KEY AUTO_INCREMENT,
+    CustomerID INT,
+    RentalStartDate DATE,
+    RentalEndDate DATE,
+    TotalPrice DECIMAL(8,2),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+*****************************************************************************
+
+auto_increment
+
+ให้ข้อมูลใน colloum เพิ่มทีละ 1 เรื่อยๆ
+
+EX
+create table dogs(
+name varchar(100),
+age int,
+dogs_id int not null primary key auto_increment
+);
+
+*****************************************************************************
+
+
+
