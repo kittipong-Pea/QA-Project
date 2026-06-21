@@ -1,0 +1,56 @@
+Git Hub Command
+
+Git Hub
+
+- git clone url
+
+Git remote
+
+- git remote -v ไว้เช็คว่า มี gitremote ไหม
+- git remote add origin urlที่สร้าง
+
+
+origin คือ repo ที่อยู่บน github  
+origin เราตั้งชื่อใหม่ได้
+
+
+- fetch  ดึงข้อมูล ลงมา
+- push  ลงไปใน  githup 
+
+*****************************************************************************
+
+Git push
+
+git push remote branch
+EX
+git push orgin manster
+
+
+********************************
+ถ้าข้อง error ลองไป seeting SSH
+เป็น authen ของ github 
+ลองไป หาดู ใน google 
+ssh-keygen -t ed25519 -C "E-mail ที่ใช่ login git"
+
+********************************
+
+ทำ agent
+Set-Service ssh-agent -StartupType Manual
+Start-Service ssh-agent
+Get-Service ssh-agent
+
+cat ~/.ssh/id_ed25519.pub
+เพื่อดู Public Key
+
+เเล้วก็อป ไปวางที่ githup ได้เลย ดูใน account มี SSH Key and GPG Key อยู่
+git checkout คือการนำ branch ของ remote ไปยัง local 
+
+*****************************************************************************
+
+git push -u origin master
+
+-u เอาไว้ track เวลา push จะได้ไม่ต้องพิมพ์ยาว
+พิมเเค่
+ git push ก็จะ push  origin master ได้เลย
+
+*****************************************************************************
