@@ -1,0 +1,15 @@
+H. บทที่ 16.5 like Schema
+
+
+create table likes(
+user_id int not null,
+video_id int not null,
+Create_at timestamp default now(),
+foreign key(user_id) references User(user_id),
+foreign key(video_id) references Video(video_id),
+primary key(user_id,video_id)
+);
+
+
+insert into likes(user_id,video_id)
+values (1,1),(1,2),(2,1),(3,1),(3,3);

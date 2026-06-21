@@ -1,0 +1,149 @@
+SQL Command
+
+Cha 
+Vacha
+Int
+inserte ค่า ต้องดูนับรวม ทศนิยมด้ว
+
+Float  จำนวนตัวอยู่ได้เเค่ 7
+double อยู่ได้ 15ตัว
+EX
+table Float ;
+table double ;
+
+**************************************************************************
+date time
+- date time  'YYYY-MM-DD HH:MM:SS'
+EX
+insert into product(name,EXP,EXT,EXDT)
+values ('GreenTea','2024-2-28','4:00:00','2024-2-28 4:00:00');
+
+**************************************************************************
+Curdate,curtime and now
+Curdate()  เดือนปัจจุบัน	current_date
+curtime()   เวลาปัจจุบัน	current_time 
+now()  มีทั้งวันที่เเละเวลา		current_timestamp 
+EX
+insert into product(name,EXP,EXT,EXDT)
+values ('Milk',Curdate() ,curtime(),now());
+
+**************************************************************************
+date
+- select dayname();
+เเสดงเป็น 	วัน
+- select dayofweek();
+เเสดง เป็นเลข 1-7 วันอาทิตย์ คือเลข1 ไปเรื่อยๆ ถึงวันเสาร์
+- select dayofmonth();
+เเสดง วันอะไรของเดือน
+- select dayofyear();
+เเสดง วันที่ที่เท่าไหร่ของปี
+
+**************************************************************************
+Time Function
+ค้ายๆกับ day 
+- select hour();
+- select minute();
+- select second();
+
+**************************************************************************
+TimeStamp and date time
+- TimeStamp ไม่เกินปี 2038
+- date time ได้ 9999 กว้างกว่าเเต่ใช้ข้อมุลมากกว่า
+
+EX
+create table reviews2(
+text varchar(150),
+created_at timestamp default current_timestamp ,
+update_at timestamp on update current_timestamp );
+
+**************************************************************************
+not Equal != ไม่เอา
+EX
+select title , release_year from movies where release_year != 2010  ;
+
+**************************************************************************
+not like '..%' เอาที่ไม่มี
+like เอาที่มี
+EX
+select title , director from movies where title not like  'The%' ;
+
+**************************************************************************
+> < <=
+EX
+select title , director,release_year from movies where release_year > 1999 ;
+
+**************************************************************************
+Logical AND
+where column = '...' and column = '...' ;
+
+EX
+select title , director,release_year from movies where release_year > 1999  
+and director like 'Christopher%' ;
+
+*************************************************************************
+Logical OR
+
+ค้ายๆ  and เเต่ or อย่างไดอย่างหนึ่งถูกก็ได้
+เขียนหลัง where เหมือนกัน
+
+select title , director,release_year from movies where release_year > 1999  
+or director like 'Christopher%' ;
+
+*************************************************************************
+Between
+
+ใช้ and เเทนได้
+Between ใช้กับตัวเลขเป็นหลัก ช่วงระหว่าง 10 กับ 20 อะไรเเบบนี้
+Between ... and ... ;
+not Between ได้ผมตรงข้ามกัน
+
+EX
+select title , director,release_year from movies where release_year  between 1900 and 2000 ;
+
+*************************************************************************
+The In Operator
+
+In
+เเสดง column ที่มี 
+ถ้าไม่ใช้ in ก็ เขียนเเบบ where..., or...., or...., or... ; เเบบนี้ก็ได้
+
+In ใช้ where ... in('...','...','...');
+
+EX
+select title, director from movies where director 
+in('christopher nolan','frank darabont') ;
+
+*************************************************************************
+Case
+ทำงาน คล้ายๆ กับ if eles 
+case when ..... case ต้องมี when 
+then หลังจากนั้นให้เเสดง  ถ้าถูกเงื่อนไข
+ตามด้วย eles ถ้าไม่ถูกเงื่อนไข
+จบด้วย end 
+EX
+
+SELECT director, 
+CONCAT(COUNT(*), 
+CASE 
+	when COUNT(*) = 1 THEN ' movie' 
+	else ' movies' 
+	end
+    ) as count from movies
+group by director
+order by COUNT(*) desc;
+
+*************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+

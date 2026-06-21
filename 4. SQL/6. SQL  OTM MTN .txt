@@ -1,0 +1,64 @@
+SQL  OTM MTN 
+
+1 to 1
+1 to many พบบ่อย
+many to many
+
+*********************************************************************
+Cross joins
+
+การเเสดงข้าม table กันได้
+ตัวอย่างเช่นเอา ข้อมุลของ table รอง ที่เป็น fk   ไปหาใน table หลักได้
+
+EX
+select * from customers where  CustomerID = 4;
+select * from rentals where  CustomerID = 4;
+
+การ join
+Cross joins ไม่ค่อยนิยม เพราะเป็นการ รวมทั้งหมดซะส่วนใหญ่เลย ทำให้ยากต่อการรู้ว่าความสัมพันธ์เป็นยังไง
+ดูยาก
+select * from table1,table2 ;
+EX
+select * from customers , rentals ;
+
+*********************************************************************
+inner joins
+
+เลือก a กับ b ที่ตรงเป้าหมายของตาราง
+join ต้องมี on ต่อ 
+
+EX
+select * from customers join rentals on rentals.CustomerID = customers.CustomerID ;
+
+*********************************************************************
+Left joins 
+
+เอาข้อมูลที่อยู่ด้นซ้ายทั้งหมด โดยไม่สน ว่าจะเจอไหม
+หมายถึงใน table1 มี roll ที่มาใหม่ เเต่ table2 ไม่มีการสัมพันธ์เลย ก็สามารถเเสดงได้ไม่เหมือน 
+cross join กับ inner 
+
+EX
+select 
+class_id,
+students.name as Student_name,
+class.name as class_name,
+GPA from class
+left join students 
+on class.student_id = students.id ;
+
+*********************************************************************
+Right joins
+
+ตรงตรงข้ามกับ กับ  left เลย เลือก ข้อมุลจาก B เอาบางส่วนจาก A
+ทำหน้าที่เหมือนกันขึ้นอยู่ว่าอยากจะเอาอะไรขึ้นก่อน
+
+EX
+select RentalStartDate,TotalPrice,FirstName,LastName from rentals 
+right join customers on rentals.CustomerID = customers.CustomerID ;
+
+*********************************************************************
+
+
+
+
+

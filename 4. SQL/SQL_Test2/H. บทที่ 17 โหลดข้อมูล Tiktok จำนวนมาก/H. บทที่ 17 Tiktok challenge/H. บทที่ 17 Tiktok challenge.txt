@@ -1,0 +1,65 @@
+H. บทที่ 17 Tiktok challenge
+
+EX1 คนที่่สมัคร นานที่สุด
+select * from users order by created_at limit 5;
+
+EX2 วันไหนมามากสุด
+select 
+dayname(created_at) as day ,
+count(*) as Total from users
+group by day
+order by Total  desc;
+ 
+EX3 ไม่เคยโพสรูปเลย
+select * 
+from users
+left join video on video.user_id = users.id 
+where video_url is null;
+
+EX4 วิดีโอไหน มีคน like มากที่สุด
+select
+username,
+video_id ,
+video.user_id,
+count(*) as total_likes
+from likes  
+join video on likes.video_id = video.id 
+join users on users.id = video.user_id
+group by video_id 
+order by total_likes desc
+limit 1;
+
+EX5 หาค่าเฉลี่ย user ต่อโพสวิดีโอ
+select round( (select count(*)from video) / (select count(*)from users),2 )
+as averge ;
+
+EX6 หายอดจำนวนการใช้ มากที่สุด
+select tag_name,
+count(*) as total
+from tags
+join video_tags on tags.id =  video_tags.tag_id 
+group by tags.id
+order by total desc
+limit 5;
+
+EX7 หาบอทที่กด like ทั้งหมด
+select username,
+count(*) as total
+from users 
+join likes on likes.user_id = users.id  
+group by user_id 
+having total = (select count(*)from video) ให้มันนับ จำนวนวิดีโอ
+order by total desc
+limit 1;
+
+
+
+
+
+
+
+
+
+
+
+

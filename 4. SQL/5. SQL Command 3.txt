@@ -1,0 +1,68 @@
+SQL Command 
+
+UNIQUE Constraint
+
+บอกว่า column นี้ห้าม มีข้อมูลที่ซ้ำกัน 
+EX
+create table user(
+user_name varchar(50) unique ,
+user_email varchar(50) unique ,
+create_at timestamp default current_timestamp
+);
+
+****************************************************************************
+CHECK Constraint
+
+เอาไว้เช็ค จัวที่ inserte เข้ามา ไม่จำเป็นต้องเป้นตัวเลข เท่านั้น
+
+check(clumn );
+
+EX 
+create table Product(
+product_name varchar(100),
+price double(10,2) check (price >= 0),
+stock_quantity int check (stock_quantity >= 0) );
+
+****************************************************************************
+Alter table adding column
+
+Alter ใช้ได้หลาย อย่าง ไปหาดู 
+alter table ชื่อ table
+add column ชื่อ  type ;
+
+EX
+alter table user2 add column phone_number int ;
+
+****************************************************************************
+Alter table Renameing
+
+ถ้าจะ rename table เขียนเเค่ rename  ได้เลย
+rename ... to ... ;
+
+EX
+alter table user2 
+rename column user_name to user_name2 ;
+
+****************************************************************************
+Alter table Modifying column
+เเก้ไขข้อมูล ใน column
+
+EX
+ALTER TABLE user2
+MODIFY phone_number VARCHAR(10);
+
+****************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+

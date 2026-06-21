@@ -1,0 +1,17 @@
+H. บทที่ 16.3 Video Schema
+
+create table Video(
+video_id int auto_increment primary key,
+video_url varchar(255) not null,
+user_id int not null,
+Create_at timestamp default now(),
+foreign key(user_id) references User(user_id)
+) ;
+
+
+select 
+video_id ,
+video_url,
+video.user_id from Video
+left join User on video.user_id = User.user_id
+;

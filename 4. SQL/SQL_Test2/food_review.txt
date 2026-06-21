@@ -1,0 +1,48 @@
+Food review challenge
+
+EX1
+select food.name,reviews.rating from food
+join reviews on reviews.food_id = food.id ;
+
+EX2
+select food.name,round(avg(reviews.rating),2) as Average  from food
+join reviews on reviews.food_id = food.id
+group by food.name
+order by Average ;
+
+EX3
+select first_name,last_name,rating as reviews from reviewers
+join reviews on reviews.reviewer_id = reviewers.id ;
+
+EX4 ไม่มีคน รีวิว
+select food.name from food
+left join reviews on reviews.food_id = food.id where rating is null;
+
+EX5
+select restaurant_name , round(avg(reviews.rating),2) as avg_rating from food
+left join  reviews on reviews.food_id = food.id
+group by restaurant_name
+; 
+
+EX6
+select first_name , last_name ,count(rating)  as Count, 
+ifnull( min(rating),0.00 ) as Min, 
+ifnull( max(rating),0.00 ) as Max,
+ifnull(round(avg(reviews.rating),2),0.00)as Avg ,
+case
+when count(rating) >= 10.00 then 'PowerUser'
+when count(rating) > 0.00 then 'Active'
+else 'Inactive' end	as Status
+from reviewers 
+left join reviews on  reviews.reviewer_id = reviewers.id
+group by first_name ,last_name 
+order by count desc
+;
+
+EX7 3 ตาราง  เขียน join ต่อกันเลย ต้อง join ที่เป็น table หลัก ที่มี fk ทั้งหมดเท่านั้น ไม่งั้นหาไม่เจอ
+
+select food.name , reviews.rating , concat(first_name ,last_name) as Reviewer from food
+join  reviews on reviews.food_id = food.id
+join reviewers on reviewers.id = reviews.reviewer_id
+;
+

@@ -1,0 +1,12 @@
+select 
+students.name as Student_name,
+ifnull(avg (class.GPA),0.00)as Average_GPA,
+CASE 
+	when ifnull(avg (class.GPA),0.00) >= 2.75 THEN ' Pass' 
+	else ' Fail' 
+	end as Average_Status
+from class
+right join students on students.id = class.student_id
+group by students.id ,Student_name
+order by average_GPA desc
+;
