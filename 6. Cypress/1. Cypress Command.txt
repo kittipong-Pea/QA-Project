@@ -1,5 +1,21 @@
 Cypress 
 
+Cypress Installation
+
+****เเนะนำไม่ใช้ให้ parth ที่มีภาษาอื่นด้วย****
+
+-ต้องมี npm ด้วย
+
+สร้างใน terminal ใน vs code ก็ได้
+
+-npm init เพื่อที่จะให้มันตั้งทำงาน
+-พอสร้างเรียบร้อยเเล้ว ทำการ install Cypress โดยการ พิมพ์  npm install cypress
+-เช็ค version node js ด้วย
+-พอได้ให้  npx cypress open
+-ถ้าเปิดได้ก็เป็นอันเสร็จ
+
+*****************************************************************************
+
 1. describe() (กล่องหรือกลุ่มของ Test Cases)
 หน้าที่: ใช้สำหรับรวบรวม Test Cases
 2. it() (ตัว Test Case แต่ละเคส)
