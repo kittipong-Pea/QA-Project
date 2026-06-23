@@ -1,0 +1,21 @@
+I. บทที่ 6.6   Break
+
+เป็นคำสั่งให้ loop ทั้งหมด หยุดทำงานทันที นอกเหนือจาก condition (เงื่อนไข) ที่ตั้งไว้
+
+break;
+
+EX
+let q = 8;
+let ans = prompt("Enter Num");
+
+while (true) {
+    if (q == ans) {
+        alert("True");
+        break;
+    }
+    else {
+        ans = prompt("Enter Num");
+         }
+}
+
+EX2

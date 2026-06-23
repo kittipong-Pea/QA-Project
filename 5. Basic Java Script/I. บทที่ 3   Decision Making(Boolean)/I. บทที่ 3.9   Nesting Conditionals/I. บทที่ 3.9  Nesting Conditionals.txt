@@ -1,0 +1,19 @@
+I. บทที่ 3.9  Nesting Conditionals
+
+
+การสร้าง  condition  ซ้อน  condition
+
+EX
+
+let password = prompt("Please enter your Password")
+
+if(password.length >= 6){
+    // more than 6
+    if(password.indexOf(' ') !== -1){
+        alert("password cant inclup space")
+    }
+    else{alert("password valid")
+    }
+}else {
+    alert("Password too short ")
+}

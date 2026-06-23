@@ -1,0 +1,36 @@
+I. บทที่ 6.10  การสร้าง todo list
+
+
+EX
+let input = prompt("what would you like to do")
+
+const todos = [];					
+
+while (input != "quit") {
+    if (input == "list") {
+        console.log("*****");
+        if (todos.length > 0) {
+            for (let i = 0; i < todos.length; i++) {
+                console.log(`${i} : ${todos[i]}`);
+            }
+        } else {
+            alert("List is empty");
+        }
+    } else if (input == "new") {
+        const newtodo = prompt("what is the new todo?")
+        if (newtodo != null) {
+            todos.push(newtodo);
+            console.log(`${newtodo} added to the list`);
+        }
+    } else if (input == "delete") {
+        const index = Number(prompt("Pls enter index to Delete todo?"));
+        if (!Number.isNaN(index)) {
+            const deleted = todos.splice(index, 1);
+            console.log("Ok Deleted");
+        }
+          
+    }
+  input = prompt("what would you like to do");
+}
+
+console.log("OK Quit");

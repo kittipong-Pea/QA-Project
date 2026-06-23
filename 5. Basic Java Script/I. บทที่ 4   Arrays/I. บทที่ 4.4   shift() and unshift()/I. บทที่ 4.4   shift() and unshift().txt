@@ -1,0 +1,7 @@
+I. บทที่ 4.4   shift() and unshift()
+
+shift() การลบเหมือน pop เเต่ลบจากด้านหน้า[0]  
+name.shift()
+
+unshift() การเพิ่ม เหมือน push เลย เเต่เริ่มจากด้านหน้า เอาไว้ด้านหน้า [0]
+name.unshift('text')

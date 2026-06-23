@@ -1,0 +1,44 @@
+I. บทที่ 6.1   For Loops
+
+ใช่สำหรับเวลาทำอะไรซ้ำๆ ไปเรื่อยๆ จนกว่าจะจบเงื่อนไข
+i++ กับ i+=1 มีค่าเท่ากัน
+
+for(
+[inital expression]	การแสดงออกเริ่มต้น ทำงานเเค่ครั้งเเรกตอนนั้งต้น
+[condition]		เงื่อนไข ยังเป็น true อยู่ก็จะทำ loop ต่อ
+[increment expression]	การแสดงออกที่เพิ่มขึ้น หลังจบเงื่อนไข
+);
+
+EX
+for(let i = 1; 		   start
+i<=10; 			   stop at 10
+i++)			   add 1 each time
+{console.log(i);}
+console.log("End loop");   เขียนจบ loop ได้เลย
+
+EX
+let print_a = "Da ba dee da ba daa";
+
+for (let i = 0; 
+i < 6; 
+i++) 
+{console.log(print_a);}
+
+EX
+for(let i = 2; 		  
+i<=20; 			   
+i+= 2)			   เอาเเต่เลขคู่	เคขคู่ก็เเบบนี้เเต่เริ่ม i=1   
+{console.log(i);}
+
+EX
+
+for(let i = 100; 
+i>=0; 
+i-= 10)			   
+{console.log(i);}
+console.log("End loop");
+
+
+
+
+

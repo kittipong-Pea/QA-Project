@@ -1,0 +1,19 @@
+I. บทที่ 12.11 bubbles Event Property
+
+
+action ส่งผลไป  Property action อื่น
+
+ click ที่ event ใด event หนึ่งเเล้วได้ผลกระทบไปด้วย
+
+วิธีเเก้ใช้
+.stopPropagation()
+
+ทำให้ไม่ส่งผลไป tag parent อื่นได้
+
+EX
+
+const b = document.querySelector('button')
+
+b.addEventListener("click", function (e) {
+  e.stopPropagation()
+})

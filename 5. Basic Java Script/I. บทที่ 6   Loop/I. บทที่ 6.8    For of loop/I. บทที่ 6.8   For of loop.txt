@@ -1,0 +1,26 @@
+I. บทที่ 6.8   For of loop
+
+
+ง่าย เพราะ ไม่ต้องกำหนด condition อะไรเลย
+ข้อดีง่ายสะดวก
+ข้อเสียมันจะ run ทั้งหมด ไม่สามารถเเยกทำหรือ เพิ่ม condition ที่ซับซ้อน Eได้
+
+
+for(const name of valuename)
+
+EX
+let animal = ["Tiger","lion","Cat","Dog"]
+
+for (const a of animal ){
+    console.log(a);
+}
+
+EX2 Array ซ้อน Array
+let num =[[2,4,5],[5,6,7],[9,4,5]]
+
+for (const a of num ){
+    console.log(a);
+    for (const b of a) {
+         console.log(b);
+    }
+}

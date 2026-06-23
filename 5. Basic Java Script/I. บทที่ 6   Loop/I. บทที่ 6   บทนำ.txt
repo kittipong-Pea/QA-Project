@@ -1,0 +1,7 @@
+JavaScript Loops
+ในโมดูลนี้ คุณจะได้เรียนรู้เกี่ยวกับ:
+Loops
+For Loop
+Object/Array Looping
+For..of Loop
+While Loop

@@ -1,0 +1,16 @@
+I. บทที่ 9.10 The Arrow Function and this
+
+Keyword this ไม่สามารถใช้กับ arrow function ได้
+เเต่ใช้เเบบปกติ ได้ เพราะถ้าเรา log this เเบบ arrow function มันจะเเสดง log ของ property window เท่านั้น
+
+
+this เเบบปกติ (regular function) 
+let name = {
+  firstname: "Hello",
+  lastname: "world",
+  fullname: function () {
+    console.log(`Hi my name is ${this.firstname} ${this.lastname}`);
+  }
+}
+
+

@@ -1,0 +1,71 @@
+I. บทที่ 14.18 Question 18
+
+Question 18 Walkthrough ที่คุณเปิดอยู่ โจทย์คือการพิมพ์ดาวในรูปแบบ "สามเหลี่ยมมุมกลับ" (Inverted Triangle) ครับ
+
+พิมพ์ดาวให้ได้แถวตามจำนวน input ตามในตัวอย่าง
+example
+input : 5
+output :
+
+Plaintext
+    *
+   **
+  ***
+ ****
+*****
+
+EX1
+
+function printStars(n) {
+    for (let i = 1; i <= n; i++) {
+        let line = "";
+        
+        // 1. วนลูปสร้าง "ช่องว่าง" (Space) เพื่อดันดาวไปทางขวา
+        for (let j = 1; j <= n - i; j++) {
+            line += " "; 
+        }
+        
+        // 2. วนลูปสร้าง "ดาว" (*) ต่อท้ายช่องว่าง
+        for (let k = 1; k <= i; k++) {
+            line += "*";
+        }
+    
+        console.log(line);
+    }
+}
+
+// ทดสอบด้วย input: 5
+printStars(5);
+
+EX2
+
+const input = 5;
+
+for (let i = 1; i <= input; i++) {
+    // ใช้ช่องว่าง " " แทนการใช้เลข 0
+    let spaces = " ".repeat(input - i); 
+    let stars = "*".repeat(i);
+    
+    console.log(spaces + stars);
+}
+
+
+EX3
+
+const input = 5;
+
+for (let i = 1; i <= input; i++) {
+    let a = "";
+    
+    // ลูปสำหรับสร้างช่องว่าง (Space)
+    for (let j = 1; j <= input - i; j++) {
+        a += " ";
+    }
+    
+    // ลูปสำหรับสร้างดอกจัน (*)
+    for (let k = 1; k <= i; k++) {
+        a += "*";
+    }
+    
+    console.log(a);
+}

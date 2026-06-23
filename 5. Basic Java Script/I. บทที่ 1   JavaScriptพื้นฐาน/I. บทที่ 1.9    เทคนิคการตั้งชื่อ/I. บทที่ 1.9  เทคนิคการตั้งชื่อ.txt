@@ -1,0 +1,13 @@
+I. บทที่ 1.9  เทคนิคการตั้งชื่อ
+
+เเบบซ้ายได้ เเบบขวาไม่ได้
+
+let userName      	let_username  	ไม่ใช้  _ เหมือน sql
+
+let ageGroup5     	let 21Players	ไม่ใช้ตัวเวขขึ้นก่อน
+
+let $kindOfSpecial   	let user-b	ไม่ใช้ตัวอักษรพิเศษ
+
+let _interal		let let		Let let ไม่ได้
+
+ได้เเต่มันไม่นิยม เพราะเราต้องใช้ร่วมกับคนอื่น

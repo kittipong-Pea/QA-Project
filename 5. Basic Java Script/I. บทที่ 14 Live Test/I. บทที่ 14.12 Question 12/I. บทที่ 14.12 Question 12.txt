@@ -1,0 +1,27 @@
+I. บทที่ 14.12 Question 12
+
+Question 12 ชื่อโจทย์ จงเขียนโปรแกรมพิมพ์จำนวนเฉพาะตั้งแต่ 1 ถึงเลขที่ input
+
+EX 1
+let input = 25; // ตัวอย่างเลข input ตามโจทย์
+
+for (let i = 1; i <= input; i++) {
+    let isPrime = true;
+
+    if (i < 2) {
+        // เลขที่น้อยกว่า 2 ไม่ใช่จำนวนเฉพาะ (แต่ถ้าโจทย์ต้องการเลข 1 ด้วยตามตัวอย่างภาพ ให้เอาเงื่อนไขนี้ออก)
+        isPrime = i === 1; 
+    } else {
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+
+    if (isPrime) {
+        console.log(i);
+    }
+}
+

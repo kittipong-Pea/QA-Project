@@ -1,0 +1,30 @@
+I. บทที่ 10.4  Destructuring Arrays
+
+Destructuring เป็นวิธีการเขียน code อีกเเบบหนึ่งที่ง่าย
+
+-ปกติเวลาเราสร้าง arrayขึ้นมาก็จะสร้าง ชื่อ array[index]	 เเบบนี้
+const raceResults = [ 'Eliud Kipchoge', 'Feyisa Lelisa', 'Galen Rupp' ];
+
+-เเต่การ Destructuring จะเป็นการเอาข้อมูลนั้นๆ ไปใส่ให้ตรงกับ arrayของ[index]เเต่ละตำเเหน่ง
+const [ gold, silver, bronze ] = raceResults;
+gold;   //"Eliud Kipchoge"
+silver; //"Feyisa Lelisa"
+bronze; //"Galen Rupp"
+
+-อันนี้ใช้ Spread เข้ามาช่วย เขียนเเบบนี้ทำให้ เเสดงเเค่ค่าเเรกใน index ที่0 เเละ index ที่เหลือจะเเสดงเป็น everyoneElse
+const [ fastest, ...everyoneElse ] = raceResults;
+fastest;     //"Eliud Kipchoge"
+everyoneElse; //["Feyisa Lelisa", "Galen Rupp"]
+
+EX
+const nums = [1,2,3,4];
+
+let [one,two,three,four] = nums 
+
+console.log(one,two,three);
+
+let [first, ...everyoneElse] = nums
+
+console.log(first , "First");
+console.log(everyoneElse , "everyoneElse");
+

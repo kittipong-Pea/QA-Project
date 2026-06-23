@@ -1,0 +1,18 @@
+// วิธีที่ 1: ใช้ for loop
+for (let i = 0; i <= 10; i++) {
+    console.log(i);
+}
+
+// วิธีที่ 2: ใช้ while loop 
+let i = 0;
+while (i <= 10) {
+    console.log(i);
+    i++;
+}
+
+// วิธีที่ 3: ใช้ do-while loop
+let j = 0;
+do {
+    console.log(j);
+    j++;
+} while (j <= 10);

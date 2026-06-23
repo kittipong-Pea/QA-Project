@@ -1,0 +1,29 @@
+I. บทที่ 8.4   Function Exprssions
+
+ตางกับ function ปกติ ตรงที่
+
+
+EX เเบบนี้เรียกการปรกกาศธรรมดา
+function add(x,y) {
+//     return x + y
+ }
+
+EX เเบบนี้เป๋นการประกาศเเบบ Function Exprssions
+let add = function (x,y) {
+    return x + y
+}
+
+ผลออกมาเหมือนกัน
+
+EX2
+let square = function (x) {
+let multiply = (x * x)
+
+ console.log(multiply);
+
+    return multiply
+
+}
+
+square(4);
+square(3);

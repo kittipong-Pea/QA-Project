@@ -1,0 +1,7 @@
+Functions (ฟังก์ชัน) Advanced
+ในโมดูลนี้ คุณจะได้เรียนรู้เกี่ยวกับ:
+Function, Block และ Lexical Scope
+Function Expressions
+Object Methods
+Higher Order Functions
+"This" Keyword

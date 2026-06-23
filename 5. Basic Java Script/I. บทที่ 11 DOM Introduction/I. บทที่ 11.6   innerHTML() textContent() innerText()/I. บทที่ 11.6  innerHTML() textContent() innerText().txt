@@ -1,0 +1,33 @@
+I. บทที่ 11.6  innerHTML() textContent() innerText()
+
+
+innerText() เอาไว้เเก้ไข้ข้อความ tag ที่เลือกได้
+EX
+document.querySelector('p').innerText 
+เสร็จเเล้วมันจะเเสดงเเต่ text มาให้เราเเก้
+วิธีเเก้
+document.querySelector('p').innerText  = "ข้อความที่ต้องการเเก้ไข"
+
+----------------------------------------------------------------
+textContent() 
+
+document.querySelector('p').textContent
+ต่างกับ innerText() ยังไง
+ตัว innerText() จะเเสดง ตัว text ที่ทำการเเก้ไข เป็น final เเล้วลงพวก web page เรียบร้อยเเล้ว 
+เเต่
+ตัว textContent() จะเเสดงข้อมูล Text ทั้งหมด ที่เราเขียนใน file ออกมา
+
+----------------------------------------------------------------
+innerHTML() 
+เป็นการดึง tag html ออกมาด้วย
+EX <i>คอทำให้ตัวเอียง</i>
+document.querySelector('h1').innerText = "<i>Silkie Chickens</i>"
+จะเเสดง ข้อความเป็น    <i>Silkie Chickens</i>
+เเต่ถ้าใช้
+document.querySelector('h1').innerHTML = "<i>Silkie Chickens</i>"
+จะเเสดง ข้อความเป็น  Silkie Chickens เเต่ตัวเอียงเเทน
+
+-----------------------------------------------------------------
+
+
+

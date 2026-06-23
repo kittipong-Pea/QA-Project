@@ -1,0 +1,16 @@
+I. บทที่ 8.9  Try...Catch
+
+
+เพื่อดับ ในกรณีที่จะเกิด error
+
+
+EX
+try {
+    let msg = "Hello World" 
+    msg = msg.toUpperCase()			ถ้ามีคำสั่งใดคำสั่งหนึ่งผิดปกติ
+    console.log(msg);
+} catch (error) {
+    console.log("Error Please Check");		จะเเสดงคำสั่งนี้เเทน
+    
+}
+console.log("After");				นอก scope ทำงานปกติ

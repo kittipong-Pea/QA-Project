@@ -1,0 +1,30 @@
+I. บทที่ 14.3 Question 3
+
+Question 3โจทย์: จงเขียน function นำตัวเลขทั้ง 2 ตัว มายกกำลังกัน แล้ว return ผลลัพธ์ออกมา
+Example:
+pow(8, 2) ผลคือ (8 ยกกำลัง 2 = 64)
+pow(9, 3) ผลคือ (9 ยกกำลัง 3 = 729)
+pow(7, 5) ผลคือ (7 ยกกำลัง 5 = 16,807)
+pow(6, 6) ผลคือ (6 ยกกำลัง 6 = 46,656)
+
+EX เเบบที่1
+function pow(base, exponent) {
+    return base ** exponent;
+}
+
+console.log(pow(8, 2));  // 64
+console.log(pow(9, 3));  // 729
+console.log(pow(7, 5));  // 16807
+console.log(pow(6, 6));  // 279936
+
+EX เเบบที่2
+function pow2(x,y) {
+    let result = x ** y ;
+    return result   
+}
+
+console.log(pow2(8, 2));  // 64
+console.log(pow2(9, 3));  // 729
+console.log(pow2(7, 5));  // 16807
+console.log(pow2(6, 6));  // 279936
+

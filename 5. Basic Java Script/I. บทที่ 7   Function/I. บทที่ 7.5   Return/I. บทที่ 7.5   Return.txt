@@ -1,0 +1,54 @@
+I. บทที่ 7.5   Return
+
+การ return ค่าใน function ไปนอก function
+return เอา ค่าไปทำนอก function ได้
+
+ข้อควรระวัง ***
+return จะเป็นตัวสุดท้ายเท่านั้น ส่งที่ต่อจาก return จะไม่ทำงาน
+
+
+EX ถ้าทำเเบบนี้มันจะ ไม่เเสดง sum ตัวที่เเสดงนอก function 
+function add(x,y) {
+  let sum = x + y 
+
+  console.log(`Number is ${sum}`);
+
+}
+
+let sum = add(3,5)
+console.log(sum,"sum");
+
+ดังนั้นเราต้องใช้ return เข้ามาช่วย	
+function name(){
+return}
+
+
+EX
+
+function add(x,y) {
+  let sum = x + y 
+
+  console.log(`Number is ${sum}`);
+  return sum
+
+}
+
+let sum = add(3,5)
+console.log(sum,"sum");
+
+EX2
+
+function add(arr) {
+  let sum = 0
+  for (let i = 0; i < arr.length; i++) {
+    sum +=arr[i]
+  }
+  return sum ;
+}
+
+
+
+
+
+
+

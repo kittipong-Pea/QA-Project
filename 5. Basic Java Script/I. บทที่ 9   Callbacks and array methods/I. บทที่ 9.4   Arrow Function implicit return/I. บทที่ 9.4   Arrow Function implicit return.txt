@@ -1,0 +1,51 @@
+I. บทที่ 9.4   Arrow Function implicit return
+
+ความแตกต่างระหว่าง function ปกติ กับ arrow function
+เปลี่ยน จากปีกกา  เป็นวงเล็บ เเละจะ return เเค่ บรรทัดสุดท้ายเท่านั้น
+สิ่งที่อยู่ใน () คือการ return
+
+Function ปกติ:
+javascriptfunction getName() {
+  // code
+}
+Arrow Function:
+javascriptconst getName = () => {
+  // code
+}
+ความแตกต่างหลัก:
+
+1. Syntax สั้นกว่า - arrow function เขียนสั้นกว่า
+2. Implicit Return - ถ้ามีแค่บรรทัดเดียว ไม่ต้องใช้ return
+
+javascript   // Function ปกติ
+   function add(a, b) {
+     return a + b;
+   }
+   
+   // Arrow function (implicit return)
+   const add = (a, b) => a + b;
+
+3. this binding - arrow function ไม่มี this ของตัวเอง (ใช้ this จาก scope ข้างนอก)
+4. ไม่มี arguments object - arrow function ไม่มี arguments
+5. ไม่สามารถใช้เป็น constructor ได้ - ไม่สามารถใช้ new กับ arrow function ได้
+
+
+EX เเบบ arrow ปกติ
+const sum = (x,y) => {
+  return x*y
+}
+console.log(sum(7,7));
+
+เเบบ implicit return  ไม่ต้องเขียน return
+const sum1 = (x,y) => (
+  x + y
+)
+console.log(sum1(3,6));
+
+เเบบ one line 
+const sum2 = (x,y) => x + y
+console.log(sum2(3,6));
+
+
+
+

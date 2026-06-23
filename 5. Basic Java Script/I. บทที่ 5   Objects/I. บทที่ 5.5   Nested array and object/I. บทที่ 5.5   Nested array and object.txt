@@ -1,0 +1,7 @@
+I. บทที่ 5.5   Nested array and object
+
+
+การที่ object ทำงานร่วมกับ array
+
+สามารถทำ object ว้อน object 
+สามารถทำ object ซ้อน array หรือ array ซ้อน Object ได้

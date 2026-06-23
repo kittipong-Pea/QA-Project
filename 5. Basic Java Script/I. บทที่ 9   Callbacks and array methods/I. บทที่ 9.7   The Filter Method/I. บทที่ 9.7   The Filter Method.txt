@@ -1,0 +1,71 @@
+I. บทที่ 9.7   The Filter Method
+
+การ Filter ข้อมูลโดยให้ได้ข้อมูลที่เราตั้งค่าเท่านั้น
+
+
+EX
+const nums = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+const odds = nums.filter(n => {
+  return n % 2 === 1; //our callback returns true
+  //if it returns true, n is added to the filtered
+})
+//[9, 7, 5, 3, 1]
+
+const smallNums = nums.filter(n => n < 5);
+//[4, 3, 2, 1]
+
+
+EX ใช้คู่กับarrow function
+let num = [1,2,3,4,5,6,7,8,9]
+
+let newnum = num.filter( (n) => {
+    return n % 2 === 0
+    
+})
+console.log(newnum);
+
+
+EX  ใช้เเบบ implicit return
+let num = [1,2,3,4,5,6,7,8,9]
+
+let newnum = num.filter( (n) =>  n % 2 === 0
+    
+)
+console.log(newnum);
+
+
+EX2
+
+const student = [
+    {
+        name : "mike",
+        score : 40,
+        class : "A"
+    },
+     {
+        name : "Mix",
+        score : 50,
+        class : "B"
+    },
+     {
+        name : "Music",
+        score : 60,
+        class : "A"
+    }
+]
+
+
+let studentnew = student.filter( (s) => s.score >= 50
+)
+console.log(studentnew);
+
+
+ถ้าใช้ map ร่วม สามารถเขียนรวมกันเเบบนี้ได้เลย
+let stendentNew = students.filter( s => {
+  return s.score >= 50
+}).map(e => {
+  name : e.nickname,
+  final_score: e.score
+})
+
+console.log(stendentNew);

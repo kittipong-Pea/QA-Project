@@ -1,0 +1,45 @@
+Feature ใหม่ๆของ JS Cheat Sheet
+New JS Features คืออะไร
+คือคุณสมบัติใหม่ๆ ที่ถูกเพิ่มเข้ามาใน JavaScript เพื่อเพิ่มความสะดวกและประสิทธิภาพในการเขียนโค้ด
+Default Parameters (Default Params) - กำหนดค่าเริ่มต้นให้กับพารามิเตอร์ของฟังก์ชัน
+Spread Operator in Function Calls - แยก elements ของ array เป็นอาร์กิวเมนต์ต่างๆ ในฟังก์ชัน
+Spread with Array Literals - รวม arrays หรือเพิ่ม elements ใน array ใหม่
+Spread with Objects - คัดลอกหรือรวมคุณสมบัติของ object
+Destructuring Arrays - แยก elements ของ array ออกมาเป็นตัวแปร
+Destructuring Objects - แยกคุณสมบัติของ object ออกมาเป็นตัวแปร
+Destructuring Parameters - แยกคุณสมบัติของ object ที่ถูกส่งเป็นพารามิเตอร์ของฟังก์ชัน
+ตัวอย่างการใช้งานในโค้ด:
+// Default Parameters
+function greet(name = 'Guest') {
+    console.log(`Hello, ${name}!`);
+}
+greet('John'); // Hello, John!
+greet(); // Hello, Guest!
+// Spread Operator in Function Calls
+const nums = [1, 2, 3];
+function sum(x, y, z) {
+    return x + y + z;
+}
+console.log(sum(...nums)); // 6
+// Spread with Array Literals
+const parts = ['shoulders', 'knees'];
+const body = ['head', ...parts, 'toes'];
+console.log(body); // ["head", "shoulders", "knees", "toes"]
+// Spread with Objects
+const obj1 = { foo: 'bar', x: 42 };
+const obj2 = { foo: 'baz', y: 13 };
+const mergedObj = { ...obj1, ...obj2 };
+console.log(mergedObj); // { foo: "baz", x: 42, y: 13 }
+// Destructuring Arrays
+const rgb = [255, 200, 0];
+const [red, green, blue] = rgb;
+console.log(red, green, blue); // 255 200 0
+// Destructuring Objects
+const student = { name: 'John Doe', age: 20 };
+const { name, age } = student;
+console.log(name, age); // John Doe 20
+// Destructuring Parameters
+function studentInfo({ name, age }) {
+    console.log(`Name: ${name}, Age: ${age}`);
+}
+studentInfo(student); // Name: John Doe, Age: 20

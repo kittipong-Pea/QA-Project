@@ -1,0 +1,28 @@
+I. บทที่ 8.3   Lexical Scope
+
+ความสามารถที่ เรา เพิ่มตัวเเปล ให้กับ พวก top scope หรือ scope ที่ใหญ่กว่าเราได้
+
+EX เเบบนี้สามารถ เพิ่มตัวเเปล ให้กับ พวก top scope ได้
+function outer() {
+  let hero = "Black Panther";
+  
+  function inner() {
+    let cryForHelp = `${hero}, please save me!`
+    console.log(cryForHelp);
+  }
+  
+  inner();
+}
+
+outer();
+
+EX2
+function getName() {
+  let nameList = ["Alice","Bob","Anna"]
+  function inner() {
+    for (let i = 0; i < nameList.length; i++) {
+      console.log(`Hi ${nameList[i]}`);
+    }
+  }
+  inner()
+}

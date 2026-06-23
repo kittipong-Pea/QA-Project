@@ -1,0 +1,7 @@
+I. บทที่ 5.1   Object literals คืออะไร
+
+Object คือ collection ของ properties 
+โดย การทำเป็น key value
+
+ทำไมถึงใช้ object เป็นการ คุยเเต่ละ key values ทำให้นึงถึงส่งใด 
+พวกทำ usernamp password 

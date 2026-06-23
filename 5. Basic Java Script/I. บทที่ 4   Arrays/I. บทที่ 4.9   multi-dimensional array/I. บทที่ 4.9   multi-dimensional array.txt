@@ -1,0 +1,18 @@
+I. บทที่ 4.9   multi-dimensional array
+
+nested array ทำซ้อนๆ กันได้เรื่อยๆ
+
+EX
+const name = [['1','2'],['3','4'],['5','6']]
+
+มันจะออกมามาเป็น array 3ชุด ดังนั้นเวลาการเข้าถึง เเก้ไข ลบ
+name[0][2]
+
+EX การเเก้ไข 
+airplaneSeats[3][1] = "Hugo";
+
+EX ลบเเบบไม่มีอะไรเเทน ช่องว่าง
+delete airplaneSeats[3][1];
+
+EX ลบเเล้วเเทนด้วย null
+airplaneSeats[3][1] = null;

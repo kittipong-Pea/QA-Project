@@ -1,0 +1,20 @@
+I. บทที่ 7.1   Function คืออะไร
+
+80ส่วน ใหญ่จะเขียนเป็น function
+
+ทำให้ทำงานง่ายเเละรวดเร็ว  
+
+คลายๆ blue print  เเล้วทำตามวัตถุประสงค์นั้ง เเล้ว return ค่ากลับมา
+
+Function ใน JavaScript
+Function คือ ชุดคำสั่งที่เขียนครั้งเดียว เรียกใช้ได้หลายครั้ง
+
+3 วิธีเขียน
+// 1. Function Declaration
+function บวก(a, b) { return a + b; }
+
+// 2. Function Expression
+const บวก = function(a, b) { return a + b; };
+
+// 3. Arrow Function (นิยมที่สุด)
+const บวก = (a, b) => a + b;

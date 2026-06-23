@@ -1,0 +1,13 @@
+I. บทที่ 4.3   Push() and pop()
+
+Push() add ข้อมูลไปต่อท้าย array
+Pop() remove ข้อมูลท้ายข้อง array pop เลือกไม่ได้จะดึงอันท้ายเสมอ
+
+
+name.Push("values")
+EX
+animal.Push("fish")
+
+name.pop()
+EX
+animal.Push()

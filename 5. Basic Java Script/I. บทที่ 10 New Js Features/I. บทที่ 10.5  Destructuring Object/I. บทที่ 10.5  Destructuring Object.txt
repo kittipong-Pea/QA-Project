@@ -1,0 +1,41 @@
+I. บทที่ 10.5  Destructuring Object
+
+เหมือนกันเลย เเต่ array จะอ้างอิงด้วยตำเเหน่ง object จะอ้างอิงด้วยชื่อใน property ด้านใน
+ถ้าชื่อไม่ตรงดึงไม่ได้
+อย่าลืมว่า object ต้องใช้ {}
+
+const runner = {
+  first: "Eliud",
+  last: "Kipchoge",
+  country: "Kenya",
+  title: "Elder of the Order of the Golden Heart of Kenya"
+}
+
+const {first, last, country} = runner;
+
+first;   //"Eliud"
+last;    //"Kipchoge"
+country; //"Kenya"
+
+EX
+
+const runner ={ 
+    first : "Tommy",
+    last : "alice",
+    county : "USA"
+}
+
+ปกติเราจะทำการ add เเบบนี้ เเต่ในกรณีที่มีจำนวนมากทำให้เสียเวลา 
+let first = runner.first ;
+
+console.log(first);
+
+เขียนเเบบนี้ง่ายกว่า
+let {first,last} = runner
+
+console.log(first);
+
+
+
+
+

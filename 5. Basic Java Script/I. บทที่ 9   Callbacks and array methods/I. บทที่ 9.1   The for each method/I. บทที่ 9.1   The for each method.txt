@@ -1,0 +1,60 @@
+I. บทที่ 9.1   The for each method
+
+forEach = เขียนง่าย สั้น แต่ควบคุมน้อยกว่า
+ความต่าง
+for ใช้ได้เเบบจะทั้งหมด ไม่ว่า opject หรือ array อื่นๆ
+เเต่
+***forEach ใช่กับ array ได้เท่านั้น***
+
+EX
+const nums = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+nums.forEach(function (n) {
+    console.log(n * n)
+    //prints: 81, 64, 49, 36, 25, 16, 9, 4, 1
+});
+
+nums.forEach(function (el) {
+    if (el % 2 === 0) {
+        console.log(el)
+        //prints: 8, 6, 4, 2
+    }
+})
+
+EX2
+
+const num = [3,5,3,4,9]
+function print(n) {
+    console.log(n);
+    
+}
+
+num.forEach(print)
+
+เเบบ for ปกติ
+// for (const n of num) {
+//     console.log(n);
+// }
+
+
+EX2
+const student =[{
+    name : "Kittipong",
+    age : 25,
+    Score : 50
+},
+{
+    name : "Peanpituk",
+    age : 30,
+    Score : 40
+}]
+
+
+student.forEach(function(s){
+    console.log(`Score of ${s.name} is ${s.Score}`);
+})
+
+
+// for (const s of student) {
+//     console.log(`Score of ${s.name} is ${s.Score}`);
+// }

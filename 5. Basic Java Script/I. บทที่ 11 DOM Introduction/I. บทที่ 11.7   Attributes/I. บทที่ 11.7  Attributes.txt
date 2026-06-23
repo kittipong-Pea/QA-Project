@@ -1,0 +1,47 @@
+I. บทที่ 11.7  Attributes (คุณลักษณะ)
+
+getAttributes()
+ความเเตกต่าง
+.hrefจะคืนค่า URL แบบ “เต็ม”
+.getAttribute('href') จะคืนค่า “ดิบ” (raw value) ตามที่เขียนใน HTML
+
+EX
+document.querySelector('p a').href
+// "http://127.0.0.1:5500/wiki/List_of_chicken_breeds"
+
+document.querySelector('p a').getAttribute('href')
+// "/wiki/List_of_chicken_breeds"
+
+------------------------------------------------
+
+setAttributes()
+เอาไว้เซ็ค ค่าเปลี่ยน ค่า  Attributes
+.setAttribute('จะเซ็ตอะไร', 'เป็นเต็ตอะไร')
+
+EX
+const input = document.querySelector('#input')  #หมายถึงการเลือก element จาก id
+
+input
+// <input id="input" type="text">
+input.type
+// "text"
+
+ทำการเปลี่ยน type เป็นเเบบ password เพื่อ test
+input.type = "password"
+// "password"
+
+input.setAttribute('type', 'text')	
+เป็น type จาก password เป็น text
+
+EX2
+src ย่อมาจากคำว่า Source (แหล่งที่มา) ครับ
+ถ้าจะให้อธิบายง่าย ๆ มันคือ "ที่อยู่" หรือ "ลิงก์" ของไฟล์ภาพที่บอกให้ Browser รู้ว่าต้องไปดึงรูปภาพมาจากที่ไหนเพื่อเอามาแสดงบนหน้าเว็บ
+
+const image = document.querySelector('img');
+
+document.querySelector('img').setAttribute('src','https://devsprouthosting.com/images/chicken.jpg');
+หรือ
+// สั่ง set attribute ที่ชื่อว่า 'src' ให้เป็นค่าใหม่
+image.setAttribute('src', 'https://devsprouthosting.com/images/chicken.jpg');
+
+

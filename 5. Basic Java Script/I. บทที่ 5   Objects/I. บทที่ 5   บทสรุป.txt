@@ -1,0 +1,25 @@
+JavaScript Object Cheat Sheet
+JavaScript Objects คืออะไร
+ เป็นคอลเลกชันของคุณสมบัติที่มีค่า โดยมีโครงสร้างแบบคีย์-แวลู (key-value pairs)
+การสร้าง Object
+สามารถสร้างด้วยวงเล็บปีกกา {}
+การเข้าถึงคุณสมบัติ - ใช้ dot notation หรือ bracket notation
+การเปลี่ยนแปลง Object - เพิ่มหรือเปลี่ยนแปลงคุณสมบัติโดยตรง
+การลบคุณสมบัติ - ใช้ delete operator
+
+ตัวอย่างการใช้งานในโค้ด:
+//สร้าง Object 
+let person = {
+    name: 'John',
+    age: 30,
+    isEmployed: true
+};
+//เข้าถึงคุณสมบัติ
+console.log(person.name); // 'John'
+console.log(person['age']); // 30
+//เปลี่ยนแปลง Object 
+person.job = 'Engineer';
+person.age = 31;
+//ลบคุณสมบัติ 
+delete person.isEmployed;
+

@@ -1,0 +1,11 @@
+I. บทที่ 3.10 Truth-y and False-y values
+
+Falsy values
+-false
+-0
+-""(empty string)
+-null
+-undefined(ไม่มี)
+-Nan
+
+Everything eles is truthy

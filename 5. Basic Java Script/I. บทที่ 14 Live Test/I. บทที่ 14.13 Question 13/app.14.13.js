@@ -1,0 +1,57 @@
+// const phones = [
+//   { id: 1, startBat: 89, idleMin: 3, callMin: 1, rate: 0.2, callMulti: 5 },
+//   { id: 2, startBat: 49, idleMin: 5, callMin: 1, rate: 0.4, callMulti: 2 },
+//   { id: 3, startBat: 78, idleMin: 2, callMin: 1, rate: 0.5, callMulti: 3 },
+//   { id: 4, startBat: 19, idleMin: 20, callMin: 1, rate: 0.1, callMulti: 1 },
+//   { id: 5, startBat: 99, idleMin: 5, callMin: 1, rate: 1, callMulti: 2 }
+// ];
+
+// phones.forEach((phone) => {
+//   // 1. คำนวณแบตที่ลดตอนวางไว้เฉยๆ (idle)
+//   const idleLoss = phone.idleMin * phone.rate;
+  
+//   // 2. คำนวณแบตที่ลดตอนโทรออก (call) 
+//   // สูตร: เวลาโทร * (อัตราปกติ * จำนวนเท่าที่เพิ่มขึ้น)
+//   const callLoss = phone.callMin * (phone.rate * phone.callMulti);
+  
+//   const totalLossPerCycle = idleLoss + callLoss;
+//   const remainingBat = phone.startBat - totalLossPerCycle;
+
+//   console.log(`เครื่องที่ ${phone.id}: แบตเตอรี่คงเหลือ ${remainingBat.toFixed(2)}%`);
+// });
+
+
+
+
+function batteryTimeCalculator(
+    percentBattery,
+    standbyTimeDuration,
+    callTimeDuration,
+    standbyBatteryRate,
+    callBatteryRate
+) {
+    let batteryReduceWhenStandby = standbyTimeDuration * standbyBatteryRate;
+    let batteryReduceWhenCall = callTimeDuration * callBatteryRate;
+
+    let batteryReducePerRound = batteryReduceWhenStandby + batteryReduceWhenCall;
+    let time = 
+        ((standbyTimeDuration + callTimeDuration) / batteryReducePerRound) * percentBattery;
+
+    return time;
+}
+
+// คำนวณทั้ง 6 เครื่องตามโจทย์
+const timeToUsePhone1 = batteryTimeCalculator(89, 3, 1, 0.2, 0.2 * 5);
+const timeToUsePhone2 = batteryTimeCalculator(49, 5, 1, 0.4, 0.4 * 2);
+const timeToUsePhone3 = batteryTimeCalculator(78, 2, 1, 0.5, 0.5 * 3);
+const timeToUsePhone4 = batteryTimeCalculator(19, 20, 1, 0.1, 0.1 * 1);
+const timeToUsePhone5 = batteryTimeCalculator(99, 5, 1, 1.0, 1.0 * 2);
+const timeToUsePhone6 = batteryTimeCalculator(100, 7, 1, 1.0, 1.0 * 3);
+
+// แสดงผลลัพธ์ทั้งหมด
+console.log("เครื่องที่ 1:", timeToUsePhone1);
+console.log("เครื่องที่ 2:", timeToUsePhone2);
+console.log("เครื่องที่ 3:", timeToUsePhone3);
+console.log("เครื่องที่ 4:", timeToUsePhone4);
+console.log("เครื่องที่ 5:", timeToUsePhone5);
+console.log("เครื่องที่ 6:", timeToUsePhone6);

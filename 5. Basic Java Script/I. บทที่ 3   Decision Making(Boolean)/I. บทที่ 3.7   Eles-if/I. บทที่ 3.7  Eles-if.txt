@@ -1,0 +1,31 @@
+I. บทที่ 3.7  Eles-if
+
+conditional” (คอนดิชันนัล) แปลว่า “เงื่อนไข”
+
+ถ้า conditional เเรก ไม่เป็น จริง เเล้วจะให้ทำอะไร 
+เเล้ว conditional เป็นจริงทำอะไร 
+
+if(){}eles if
+
+
+EX
+
+const dayofweek = 'Monday' ;
+
+if (dayofweek == 'Monday'){
+    console.log('To day is Monday');
+}
+else if(dayofweek == 'Sunday'){
+    console.log('To day is Sunday');
+}
+
+EX2
+const type ="Baby";
+
+if (type == "student"){
+    console.log("DisCount 80%");
+}else if(type == "Teacher"){
+    console.log("DisCount 40%");
+}else if(type == "Baby"){
+    console.log("Free Lunch")
+}

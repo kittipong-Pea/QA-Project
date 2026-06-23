@@ -1,0 +1,36 @@
+DOM Cheat Sheet
+DOM (Document Object Model) คืออะไร
+คืออินเทอร์เฟซที่อนุญาตให้โปรแกรมและสคริปต์สามารถเข้าถึงและเปลี่ยนแปลงเนื้อหา โครงสร้าง และสไตล์ของเอกสาร HTML หรือ XML ได้
+The Document Object - เป็น root node ที่แทนเอกสาร HTML ทั้งหมด
+getElementById - ค้นหา element ในเอกสารโดยใช้ ID
+innerHTML - เข้าถึงหรือเปลี่ยนแปลง HTML ภายใน element
+textContent และ innerText - เข้าถึงหรือเปลี่ยนแปลงข้อความภายใน element
+Attributes - จัดการ attribute ของ element
+ClassList - จัดการ class ของ element (เพิ่ม, ลบ, ตรวจสอบ)
+Parent, Child, Sibling - เข้าถึง parent, child, และ sibling nodes
+removeChild & remove - ลบ node ลูกหรือตัวมันเองออกจาก DOM
+
+ตัวอย่างการใช้งานในโค้ด:
+/ The Document Object
+console.log(document.title); // แสดงชื่อเอกสาร
+// getElementById
+const elementById = document.getElementById('myElement');
+// innerHTML, textContent, & innerText
+elementById.innerHTML = '<p>Hello World!</p>'; // เปลี่ยน HTML ภายใน element
+elementById.textContent = 'Hello World!'; // เปลี่ยนข้อความภายใน element
+// Attributes
+elementById.setAttribute('class', 'myClass'); // เพิ่ม attribute class
+console.log(elementById.getAttribute('class')); // แสดงค่าของ attribute class
+// ClassList
+elementById.classList.add('new-class'); // เพิ่ม class
+elementById.classList.remove('old-class'); // ลบ class
+elementById.classList.toggle('toggle-class'); // toggle class
+// Parent, Child, Sibling
+console.log(elementById.parentNode); // แสดง parent node
+console.log(elementById.childNodes); // แสดง child nodes
+console.log(elementById.nextSibling); // แสดง sibling node
+// removeChild & remove
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+parent.removeChild(child); // ลบ child node
+child.remove(); // ลบ element นี้จาก DOM

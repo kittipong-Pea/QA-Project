@@ -1,0 +1,28 @@
+I. บทที่ 1.1  RoadMap
+
+มีการ coding 
+
+JavaScriptพื้นฐาน 
+
+JavaScriptคืออะไรทำต่างกับ html css ยังไง
+html การขึ้นโครงวสร้าง
+css ตบเเต่งเพิ่มสีสัน
+JavaScript ระบบต่างๆภายใน
+
+
+
+Basic
+string
+decision making 
+aeeay
+object
+loops
+introduction functions
+advanced
+callbacks and array methods
+new js features
+introducing DOM
+DOM Events
+score keeper codealong
+live test
+

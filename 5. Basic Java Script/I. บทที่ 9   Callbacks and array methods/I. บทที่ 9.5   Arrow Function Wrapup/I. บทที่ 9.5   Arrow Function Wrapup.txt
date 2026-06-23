@@ -1,0 +1,45 @@
+I. บทที่ 9.5   Arrow Function Wrapup
+
+ทบทวนบทเรียน
+
+const students = [
+    {
+        name : "Alice",
+        age : 25,
+        score : 40
+    },
+    {
+        name : "Adam",
+        age : 25,
+        score : 20
+    },
+    {
+        name : "Anna",
+        age : 25,
+        score : 90
+    },
+    {
+        name : "Tom",
+        age : 25,
+        score : 60
+    }
+]
+
+
+Map
+let newstudent = students.map(function (s) {
+    console.log(`Score of ${s.name} is ${s.score}`)
+})
+
+Arrow Function
+let new2 = students.map((s) =>{
+    console.log(`Score of ${s.name} is ${s.score}`)
+})
+
+implicit return
+let animal =["tiger","Lion","Cat","Dog"]
+
+let newanimal = animal.map( (a) =>(
+    a.toLocaleUpperCase()  
+))
+console.log(newanimal);

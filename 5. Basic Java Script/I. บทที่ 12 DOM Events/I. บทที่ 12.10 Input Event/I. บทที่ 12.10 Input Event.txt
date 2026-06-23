@@ -1,0 +1,25 @@
+I. บทที่ 12.10 Input Event
+
+type input จะจับทุกตัวที่เราเรียนไปเลย
+type  change จะจับเฉพาะ ตอนกด enter หรือ click ออก
+type blur คล้ายๆ change เเต่ enter ไม่ได้  ทำไมถึงใช้ ตัวนี้ ตัวอย่างในกรณีที่ กรอกไม่ครบเเล้วไปกดนอกกรอบ 
+เเล้วขึ้นว่า กรุณากรอกให้ครบ
+
+EX
+HTML
+  <h1>My form2</h1>
+    <input type="text" id="inpitty">
+    <h1>Result : <span id="sp"></span></h1>
+
+JS
+
+const input = document.querySelector('#inputty')
+const span = document.querySelector('span')
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let newinput = input.value
+    span.append(newinput)
+})
+input.addEventListener("change", function (params) {	ไปเปลี่ยน type ตรงนี้ได้เลย
+    console.log("Input");
+})

@@ -1,0 +1,5 @@
+JavaScript Object
+ในโมดูลนี้ คุณจะได้เรียนรู้เกี่ยวกับ:
+Object
+Accessing Data in Object
+Modify Object

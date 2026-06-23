@@ -1,0 +1,65 @@
+I. บทที่ 10.2  Spreads
+
+part1
+
+Spreads 
+เอาค่า หรือ  values ใน type นั้นๆ เช่น array object อื่นๆ
+ดึงออกมาทีละ values เพือมาทำอะไรซักอย่าง ไม่ได้เอามาใช้ทั้งก้อน
+ดังนั้นจึง ต้องเช็ค  type ดีๆก่อน มันทำข้าม type ไม่ได้
+
+ปกติกรณีใช้  Math.max เข้ามาช่วย
+console.log(Math.max(1,2,3,5,8,9));
+
+EX
+ถ้าใช้เเบบนี้มันจะ run ไม่ได้
+const num [3,5,8,9]
+
+const.log(Math.max(num));
+
+ดังนั้นมันต้องเรียนเเบบนี้
+const num = [3,5,8,9]
+
+console.log(Math.max(...num));
+
+
+part2
+Spreads in array
+
+ปกติเวลารวม array กัน ใช้ concat
+const num1 = [2,4,6]
+const num2 = [8,10]
+
+console.log(num1.concat(num2));
+
+กาณี Spreads in array
+let newarr = [...num1,...num2]
+console.log(newarr);
+
+
+Part3
+Spreads in object
+
+ปกติกรณี ที่จะเพิ่มข้อมูลใหม่ใน object
+let student ={
+    name : "Tommy",
+    age : 29, 
+    score : 70
+}
+
+let newstudent = {
+    name : student.name ,
+    age : student.age   , 
+    score : student.score ,
+    ispass : true
+}
+
+console.log(newstudent);
+
+กรณี ใช้ Spreads in object
+
+let newstudent ={...student,ipass : true}
+
+console.log(newstudent);  ง่ายกว่าสั้นกว่า
+
+
+

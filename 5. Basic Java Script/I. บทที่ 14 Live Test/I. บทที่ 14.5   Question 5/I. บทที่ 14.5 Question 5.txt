@@ -1,0 +1,16 @@
+I. บทที่ 14.5 Question 5
+
+Question 5โจทย์: loop 10 ไปจนถึง 0
+
+//for	
+for (let i = 10; i >= 0 ; i--) {
+   console.log(i);
+    
+}
+
+//while
+let num = 10;
+while (num >= 0) {
+    console.log(num);
+    num -= 1;
+}

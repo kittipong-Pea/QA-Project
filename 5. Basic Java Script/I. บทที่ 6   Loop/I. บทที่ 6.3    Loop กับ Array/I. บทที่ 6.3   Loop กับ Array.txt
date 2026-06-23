@@ -1,0 +1,15 @@
+I. บทที่ 6.3   Loop กับ Array
+
+
+EX
+for(let i =0; i< animal.length; i++)
+{console.log(i,animal[i])};
+console.log(other)
+
+ทำไมถึงใช้ animal.length  ที่ใช้ length เพราะ เวลานับจะนับเเบบ index ที่เริ่มจาก 0 ที่น้อยกว่า length 1 
+ทำให้มันสามารถ หยุด loop ได้
+
+EX เเบบย้อนจากล้าน ไปบน
+for (let i = animal.length ; i >=0 ; i--) {
+    console.log(i,animal[i]);
+}console.log("End loop");

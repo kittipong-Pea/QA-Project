@@ -1,0 +1,8 @@
+I. บทที่ 12.2   Inline Event
+
+เกิดขึ้นในบรรทัดนั้น เขียนใน html เลย
+EX
+<body>
+    <h1 style="color: blue;">Hello world</h1>
+    <button onclick="alert('You clicked!'); alert('You closing popup');">Click me </button>
+</body>

@@ -1,0 +1,30 @@
+I. บทที่ 6.5   While loop
+
+
+คล้ายๆ for loop 
+
+กฎง่ายๆ: ถ้านับได้ → ใช้ for / ถ้าขึ้นกับเงื่อนไข → ใช้ while
+
+ซินเเท้ค
+while (condition) {
+}
+
+EX
+let num = 0;
+while (num < 10) {
+    console.log(num);
+    num += 1
+}
+
+EX2 
+let anser = prompt("Please Enter Your Anser")
+let question = "3"
+
+while (anser != question) {
+    anser = prompt("Please Enter Your Anser")
+}
+alert("Your anser is True")
+console.log("Enter")
+
+
+

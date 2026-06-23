@@ -1,0 +1,56 @@
+I. บทที่ 10.3  Rest Parameters
+
+Rest Parameters ใน JavaScript คือการรับ “ค่าหลายๆ ค่า” ที่ส่งเข้ามาในฟังก์ชัน 
+แล้วรวมเป็น array ก้อนเดียว  เขียนด้วย ... (สามจุด)
+ใช้กับ arrow function ไม่ได้
+
+ปกติเวลาเรา รวมค่า ทั้งหมดโดย function จะเขียนประมาณนี้
+function sum() {
+    console.log(arguments.length);
+    let sum = 0
+    for (let i = 0; i < arguments.length; i++) {
+        sum += arguments[i]
+    }
+    return sum
+}
+
+console.log(sum(6,6,8,8,3,4,5));
+
+
+เขียนเเบบ  Rest Parameters
+function sum(...num) {
+    let sum = 0
+    for (let i = 0; i < num.length; i++) {
+        sum += num[i];
+    }
+    return sum
+}
+
+console.log(sum(6,6,8,8,3,4,5));
+
+EX
+//1
+function includeLast(...items) {
+    return items[items.length - 1];
+}
+console.log(includeLast(2,3,4,1));              
+console.log(includeLast("A","B","C","D"));      
+
+
+//2
+function excludeLast (...args) {
+    return args.slice(0, -1)
+    
+}
+console.log(excludeLast(2,3,4,1));
+console.log(excludeLast("A","B","C","D"));
+
+//3
+function sumFirstLast(...num) {
+    let first = num[0];
+    let last = num[num.length -1];
+    return first + last ;
+}
+console.log(sumFirstLast(2,3,4,1));
+console.log(sumFirstLast(4,2,1,8));
+

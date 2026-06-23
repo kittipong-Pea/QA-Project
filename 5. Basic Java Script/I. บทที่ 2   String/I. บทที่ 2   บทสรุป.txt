@@ -1,0 +1,55 @@
+JavaScript Strings Cheatsheet
+
+Strings: Indices & Length
+Strings เป็นลำดับของตัวอักษรใน JavaScript ทุกตัวอักษรใน string มี "index" หรือตำแหน่งเฉพาะ
+Indices (ตำแหน่ง) - Index ของตัวอักษรเริ่มต้นที่ 0 ไม่ใช่ 1
+
+length (ความยาว)- ความยาวของ string คือจำนวนของตัวอักษรในนั้น
+ตัวอย่างการใช้งานในโค้ด:
+let greeting = "Hello";
+// แสดงตัวอักษรที่ index 0 ถึง 4
+console.log(greeting[0]); // 'H'
+console.log(greeting[1]); // 'e'
+console.log(greeting[2]); // 'l'
+console.log(greeting[3]); // 'l'
+console.log(greeting[4]); // 'o'
+// แสดงความยาวของ string
+console.log(`Length: ${greeting.length}`); // Length: 5
+String Methods With Arguments
+String Methods ใน JavaScript ใช้สำหรับการจัดการและแปลง string มีหลาย methods ที่ต้องการ arguments เพื่อระบุวิธีการทำงาน
+.slice (start, end): คืนค่า substring จาก index start ถึง end (ไม่รวม end)
+
+.substring (start, end): เหมือน .slice แต่ไม่รับค่าลบ และสลับ start กับ end ถ้า start มากกว่า end
+.replace (searchFor, replaceWith): แทนที่ searchFor ด้วย replaceWith ใน string
+
+.indexOf(searchValue, [fromIndex]): คืนค่า index แรกที่พบ searchValue ใน string หรือ -1 ถ้าไม่พบ
+
+.split(separator, [limit]):แยก string ตาม separator และคืนค่าเป็น array
+ตัวอย่างการใช้งานในโค้ด:
+// สตริงที่จะทำการทดสอบ
+let exampleString = "Hello World";
+// .slice(start, end) - ตัดสตริงจาก index เริ่มต้นถึง index สุดท้าย (ไม่รวม index สุดท้าย)
+console.log(exampleString.slice(1, 4)); // 'ell'
+// .substring(start, end) - เหมือนกับ .slice แต่ไม่รับค่าลบ และสลับ start กับ end ถ้า start มากกว่า end
+console.log(exampleString.substring(1, 4)); // 'ell'
+// .replace(searchFor, replaceWith) - แทนที่สตริง searchFor ด้วย replaceWith
+console.log(exampleString.replace("World", "Everyone")); // 'Hello Everyone'
+// .indexOf(searchValue, [fromIndex]) - หา index ของ searchValue ในสตริง หากไม่พบจะคืนค่า -1
+console.log(exampleString.indexOf("World")); // 6
+// .split(separator, [limit]) - แยกสตริงตาม separator และคืนค่าเป็น array
+console.log("a,b,c".split(",")); // ['a', 'b', 'c']
+String Template Literals
+Template literals เป็นวิธีใหม่ในการสร้าง string ใน JavaScript ที่ช่วยให้การรวมข้อความและตัวแปรเป็นเรื่องง่ายขึ้น
+backticks (``) : แทน double หรือ single quotes
+
+${}: เพื่อใส่ตัวแปรหรือการแสดงผลของ JavaScript ใน string
+ตัวอย่างการใช้งานในโค้ด:
+// การรวมตัวแปรและการแสดงผล
+let name = "Alice";
+console.log(`Hello, ${name}`); // 'Hello, Alice'
+​
+// การใช้งานกับหลายบรรทัด
+let item = "Apple";
+let price = 0.99;
+console.log(`Item: ${item} Price: $${price}`); 
+// Item: Apple Price: $0.99

@@ -1,0 +1,16 @@
+I. บทที่ 3.3   Equality triple and Double Equals
+
+==	เอาไว้เช็คความเท่ากันของ values ต่อให้ต่าง type กันก็ เช็คได้
+EX
+0 == ' ' ture
+2 == '2' ture
+
+===	การที่เช็ค values เเละ เช็ค type ด้วย
+EX
+0 === ' ' false
+2 === '2' false
+
+
+!=	ไม่เท่ากัน เอาไว้เช็ค values ต่อให้ต่าง type กันก็ เช็คได้
+
+!===	การที่เช็ค values เเละ เช็ค type ด้วย 

@@ -1,0 +1,43 @@
+I. บทที่ 11.11 append()
+
+append() และ appendChild() คืออะไร
+ทั้งคู่ใช้สำหรับเพิ่ม element ลงใน parent element แต่มีความแตกต่างกัน โดยไม่ต้องเเก้ file HTML
+
+appendChild()
+
+Method เก่า (มีมานาน)
+เพิ่ม node เดียว ลงใน parent
+รับได้เฉพาะ Node object เท่านั้น
+คืนค่า node ที่เพิ่ม
+
+EX
+const h1 = document.createElement('h1')
+h1.innerText = "Hello World"
+
+document.body.appendChild(h1)
+เพิ่ม h1 ใน tag  body ไปล่างสุด
+
+--------------------------------------------------------
+append()
+
+เอาไว้เพิ่มข้อความโดยต้องไม่ใช้ innertext เเต่ใช้ก็ได้
+เพิ่มได้หลาย node พร้อมกัน
+รับได้ทั้ง Node object และ String (ข้อความ)
+ไม่คืนค่า (undefined)
+
+EX
+const h2 = document.createElement('h2')
+h2.append('Hello H2')
+
+document.body.appendChild(h2)
+
+EX2
+ถ้าเราจะไปตำเเหน่งไหนให้ ขึ้น perent ก่อน เเล้วจะกล่ายเป็นลูก ต่อ
+const p = document.quearySelector('p')
+
+p.document.body.appendChild(h2)
+----------------------------------------------------------
+
+
+
+

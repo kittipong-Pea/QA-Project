@@ -1,0 +1,54 @@
+I. บทที่ 9.9   The Reduce Method
+
+
+การทำงานเป็น loop คำนวณค่าเเต่ละรอบ ที่มันวน กลับไปเก็บที่ cllbacl function เเล้วเอาไปใช้ต่อ
+
+[3, 5, 7, 9, 11].reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+});
+
+อธิบายการทำงาน:
+Callback	accumulator	currentValue	return value
+first call	3		5		8	
+second call	8		7		15
+third call	15		9		24
+fourth call	24		11		35
+
+EX
+const nums = [5,3,4,8,9]
+
+let result = nums.reduce (( prevValue , currValue) => {
+  console.log (prevValue,"prevValue");
+  console.log (currValue,"currValue");
+  return prevValue + currValue
+},0)
+
+console.log(result);
+
+
+EX2
+let grades = [89, 96, 58, 77, 62, 93, 81, 99, 73];
+
+const topScore = grades.reduce((max, currVal) => {
+  if (currVal > max) return currVal;
+  return max;
+})
+topScore; //99
+
+//A shorter option w/ Math.max & implicit return
+const topScore = grades.reduce((max, currVal) => (
+  Math.max(max, currVal)
+))
+
+EX3
+
+const nums = [5,3,4,8,9]
+let min = nums.reduce(( priv,crr) => {
+  console.log (priv,"priv");
+  console.log (crr,"crr");
+  if (priv < crr) {
+    return priv
+  } else {
+    return crr
+  }
+},0)

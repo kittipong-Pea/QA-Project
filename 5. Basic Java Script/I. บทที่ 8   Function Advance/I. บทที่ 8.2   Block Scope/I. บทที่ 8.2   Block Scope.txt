@@ -1,0 +1,18 @@
+I. บทที่ 8.2   Block Scope
+
+
+คล้ายๆกับ Scope นั่นเเหละ เเต่วิธีการดูใน { }
+เราประกาศ let กับ conte ไว้มันจะ ติด block scope
+เเต่ถ้าเราประกาศ var จะสามารถ  run ไปด้านนอกได้ เพราะ var เป็น Global scope
+	
+
+EX
+let score = 78
+let scoreAvg = 60
+
+if (score > 0) {
+    var grade = "A-D"
+    console.log(grade);
+}
+
+console.log(grade); ถ้าใช้ var เเบบนี้ จะทะลุ block scope ได้

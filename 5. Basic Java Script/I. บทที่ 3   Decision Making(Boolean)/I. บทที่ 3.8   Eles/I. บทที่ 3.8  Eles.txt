@@ -1,0 +1,30 @@
+I. บทที่ 3.8  Eles
+
+ถ้าไม่มีอะไรตรงเลย ก็จะไปตก eles 
+
+EX
+let dayofweek = prompt("Please enter day")
+dayofweek = dayofweek.toLowerCase()
+
+if (dayofweek == "monday"){
+   console.log("To day is Monday");
+}
+else if(dayofweek == "munday"){
+   console.log("To day is Sunday");
+}else{
+    console.log("other day");
+}
+
+EX2
+let input = prompt("Please Enter Number") 
+let random = Math.random()
+let number =  Math.floor(random*10)
+console.log(number);
+
+if(input < number){
+    console.log("input less than number");
+}else if (input > number){
+    console.log("input more than number");
+}else if (input = number){
+    console.log("input = number");
+}

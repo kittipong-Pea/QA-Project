@@ -1,0 +1,20 @@
+I. บทที่ 11.8  การเปลี่ยน Styles
+
+
+document.querySelector('...').style
+
+EX
+const h1 = document.querySelector('h1')
+
+h1.style.color = "red"
+h1.style.fontSize = "60 px"
+
+EX2 
+
+let allTagA = document.querySelectorAll('a');
+
+for (const tag of allTagA) {			ประกาศใน  allTagA ทำอะไรวนลูป
+    console.log(tag.style.color);
+    tag.style.color = "red";			เปลี่ยนสี
+    tag.style.border = "3px solid green";	เปลี่ยนขนาด
+}

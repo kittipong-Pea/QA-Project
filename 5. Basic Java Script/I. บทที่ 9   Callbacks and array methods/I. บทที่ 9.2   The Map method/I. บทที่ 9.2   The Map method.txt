@@ -1,0 +1,34 @@
+I. บทที่ 9.2   The Map method
+
+
+map คือ method ของ Array ที่ใช้สร้าง Array ใหม่ โดยแปลงค่าทุกตัวในอาเรย์เดิม
+
+EX
+const num = [6,2,4,8]				Array เเรก
+const result = num.map(function (n) {		Array ใหม่ โดยแปลงค่าทุกตัวในอาเรย์เดิม
+return n*n
+})
+
+console.log(result);
+
+EX2
+
+const student =[{
+    name : "Kittipong",
+    age : 25,
+    Score : 50
+},
+{
+    name : "Peanpituk",
+    age : 30,
+    Score : 40
+}]
+
+const newstu = student.map(function (s) {
+    return {
+    name : s.name,
+    Score : s.Score
+    }
+})
+
+console.log(newstu);

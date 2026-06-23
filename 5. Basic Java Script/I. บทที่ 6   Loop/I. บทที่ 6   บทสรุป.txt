@@ -1,0 +1,35 @@
+JavaScript Loops Cheat Sheet
+JavaScript Loops คืออะไร
+ช่วยให้สามารถทำซ้ำโค้ดได้หลายครั้งตามเงื่อนไขหรือจำนวนที่กำหนด
+For Loop - ใช้สำหรับวนลูปที่มีจำนวนรอบที่ชัดเจน
+While Loop - ใช้เมื่อจำนวนรอบไม่ชัดเจน แต่มีเงื่อนไข
+Do-While Loop - คล้ายกับ while loop แต่จะทำงานอย่างน้อยหนึ่งรอบ
+For-In Loop - ใช้สำหรับวนลูปผ่านคุณสมบัติของ object
+For-Of Loop - ใช้สำหรับวนลูปผ่าน elements ของ array
+ตัวอย่างการใช้งานในโค้ด:
+// For Loop
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+// While Loop
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+// Do-While Loop
+i = 0;
+do {
+    console.log(i);
+    i++;
+} while (i < 5);
+// For-In Loop (ใช้กับ Object)
+let person = {name: 'John', age: 30};
+for (let key in person) {
+    console.log(key + ': ' + person[key]);
+}
+// For-Of Loop (ใช้กับ Array)
+let numbers = [1, 2, 3, 4, 5];
+for (let number of numbers) {
+    console.log(number);
+}

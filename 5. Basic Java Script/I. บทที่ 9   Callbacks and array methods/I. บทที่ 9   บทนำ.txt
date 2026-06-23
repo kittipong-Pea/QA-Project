@@ -1,0 +1,9 @@
+Callbacks and Array Methods
+มาเริ่มต้นทำความรู้จักกับ Callbacks และ Array Methods ต่าง ๆ 
+เพื่อที่จะได้ใช้ Array ให้ได้หลากหลายมากยิ่งขึ้น
+ในหลักสูตรนี้คุณจะได้ทำความเข้าใจ:
+forEach Method
+map Method
+Arrow Functions
+setTimeout และ setInterval
+filter Method

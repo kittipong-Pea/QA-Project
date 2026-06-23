@@ -1,0 +1,16 @@
+I. บทที่ 8.6   Return2
+
+ของ higher order
+ดูยากอยู่
+
+EX 
+function makebetweenfunc(min , max) {
+    return function (val) {
+         return val  >= min && val <= max
+
+    }
+}
+
+let inAgeRange =  makebetweenfunc(20,90);
+
+console.log(inAgeRange(60));

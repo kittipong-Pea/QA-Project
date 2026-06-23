@@ -1,0 +1,20 @@
+I. บทที่ 3.4   Console
+
+
+console.log()	การเเสดงผล ต่างๆ
+
+EX
+-console.log('text')
+console.warn('text') เอาไว้เเจ้งเตือน
+console.error('text')  กรณีเกิด error
+
+
+-alert เอาไว้เเจ้งเตือน บนหน้า web จะขึ้นเเจ้งเตือนออกมาเป็น box
+alert('text')
+
+-prompt เอาไว้ หรอกข้อมูล การใช้งานจะขึ้นเป็น box ขึ้นมา
+prompt('text') 
+EX การใช้ร่วมกัน
+let Air = prompt('อากาศ')
+Air
+'ร้อน'

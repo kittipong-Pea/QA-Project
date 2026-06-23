@@ -1,0 +1,27 @@
+I. บทที่ 3.11 Logical operator (and)
+
+and ต้องเป็น true ทั้ง 2ข้าง
+ถ้ามีข้างใดข้างหนึง false ก็จะ false
+
+ใช้ &&
+
+true && true เป็น true
+true && ตัวเลข เป็น ตัวเลข
+ตัวเลข && true เป็น true
+true && false เป็น false
+
+false && false เป็น false
+
+EX
+true && 7 เป็น 7
+7 && true เป็น true
+
+EX
+let password = prompt("Plese enter password")
+console.log(password.length >= 6 && password.indexOf(" ") == -1);
+
+if (password.length >= 6 && password.indexOf(" ") == -1){
+    alert("Valid");
+}else{
+    alert("Invalid");
+}

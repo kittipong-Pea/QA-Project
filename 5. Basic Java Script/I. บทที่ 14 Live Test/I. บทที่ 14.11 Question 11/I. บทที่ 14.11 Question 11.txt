@@ -1,0 +1,39 @@
+I. บทที่ 14.11 Question 11
+
+Question 11 ชื่อโจทย์: จงหาค่าน้อยที่สุด และค่ามากที่สุด จากข้อมูลที่กำหนดให้
+
+EX 1 
+const input = [4, 6, 7, 1];
+
+let min = input[0];
+let max = input[0];
+
+for (let i = 1; i < input.length; i++) {
+    if (input[i] < min) {
+        min = input[i];
+    }
+    if (input[i] > max) {
+        max = input[i];
+    }
+}
+
+console.log(`min -> ${min}`); // min -> 1
+console.log(`max -> ${max}`); // max -> 7
+
+
+EX2
+
+const input2 = [2,4,5,6,1,0,8]
+
+let min2 = input2[0];
+let max2 = input2[0];
+
+input2.forEach(function (num) {
+    if (num < min2 ) min2 = num
+    if (num > min2 ) max2 = num
+})
+
+console.log(`min2 -> ${min2}`);
+console.log(`max2 -> ${max2}`); 
+
+

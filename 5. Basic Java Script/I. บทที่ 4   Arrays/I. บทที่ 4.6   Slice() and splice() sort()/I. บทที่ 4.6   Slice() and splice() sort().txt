@@ -1,0 +1,36 @@
+I. บทที่ 4.6   Slice() and splice() sort()
+
+
+
+-Slice()	ตัดตั้งเเต่ นับเเบบ index ที่เริ่มจาก 0
+Slice(start)	
+Slice(start, end)
+	EX name.Slice(0,2)
+	ตัดตัวที่ 0-3 ใน array 
+	ผลที่เเสดงจะเเสดง ตำเเหน่งที่ 0 1 2 ตั้งเเต่ 3 ลงไปไม่เอา 
+	name.Slice(1,3)
+	ผลที่เเสดงจะเเสดง ตำเเหน่งที่ 1 2 3 ตั้งเเต่ 4 ลงไปไม่เอา 
+-splice()	การลบ การเเทกร การเเทนที่ array ที่เจาะจง
+spliceใช้ได้กับ array เดียวเท่านั้นทำ กับ multi ไม่ได้
+
+splice(start)
+splice(start, deleteCount)
+splice(start, deleteCount, item1)
+splice(start, deleteCount, item1, item2)
+splice(start, deleteCount, item1, item2, /* …, */ itemN)
+splice(เริ่มตำเเหน่งที่เท่าไหร่ , ลบออกไหม , ถ้าไม่ลบอยากใช่อะไรเข้าไปเเทน)
+
+deleteCount
+0 คือไม่ลบออก 
+1 คือลบออก 1 ตัว 
+ตามระบุเลขเลยว่าจะลบกี่ตัว
+
+EX
+name.splice(3(เริ่มตำเเหน่งที่3),0(ไม่มีการลบออก),7(ใส่เลข7เเทนตำเเหน่งที่3))
+name.splice(3(เริ่มตำเเหน่งที่3),1(ลบออก1ตัว),7(ใส่เลข7เเทนตำเเหน่งที่3))
+
+-sort()		จะเรียนตำเเหน่งตาม UTF-16 ไปหา ดูใน google
+มีผลต่อการเปลี่ยนเเปลงใน array ด้วยต้องระวัง
+
+
+

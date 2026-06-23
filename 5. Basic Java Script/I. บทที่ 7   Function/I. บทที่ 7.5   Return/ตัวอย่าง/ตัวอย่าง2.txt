@@ -1,0 +1,227 @@
+คําตอบ
+
+Exercise 1: Return Value Practice
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+Exercise 2: isShortsWeather Function
+
+Solution #1
+
+function isShortsWeather(temperature) {
+  return temperature >= 75;
+}
+Solution #2
+
+// Using an explicit if/else
+function isShortsWeather(temperature) {
+  if (temperature >= 75) {
+    return true;
+  } else {
+    return false;
+  }
+Solution #3
+
+// Using the JavaScript ternary operator syntax
+function isShortsWeather(temperature) {
+  return temperature >= 75 ? true : false;
+}
+Exercise 3: Last Element Exercise
+
+Solution #1
+
+function lastElement(arr) {
+  if (arr.length === 0) {
+    return null;
+  } else {
+    return arr[arr.length - 1];
+  }
+}
+Solution #2
+
+function lastElement(arr) {
+  if (!arr.length) {
+    return null;
+  }
+  return arr[arr.length - 1];
+}
+ 
+// Or we can write it like this:
+function lastElement(arr) {
+  if (!arr.length) return null;
+  return arr[arr.length - 1];
+}
+Solution #3
+
+function lastElement(arr) {
+  if (arr.length > 0) {
+    return arr[arr.length - 1];
+  }
+  return null;
+}
+ 
+// Or we can write it like this:
+function lastElement(arr) {
+  if (arr.length > 0) return arr[arr.length - 1];
+  return null;
+}
+Solution #4:
+
+// Using the JavaScript ternary operator syntax
+function lastElement(arr) {
+  return arr.length > 0 ? arr[arr.length - 1] : null;
+}
+ 
+// Another approach:
+// arr.length will be 'truthy' if it's not 0, so we can write this:
+function lastElement(arr) {
+  return arr.length ? arr[arr.length - 1] : null;
+}
+Exercise 4: Capitalize Exercise
+
+Solution #1:
+
+function capitalize(word) {
+  return word[0].toUpperCase() + word.slice(1);
+}
+Solution #2:
+
+// A bit more explicit solution:
+function capitalize(word) {
+  const firstLetterCapitalized = word[0].toUpperCase();
+  const restOfTheString = word.slice(1);
+  return firstLetterCapitalized + restOfTheString;
+}
+Exercise 5: Sum Array Exercise
+
+Solution #1:
+
+function sumArray(nums) {
+  let total = 0;
+  for (let num of nums) {
+    total += num;
+  }
+  return total;
+}
+Solution #2:
+
+function sumArray(nums) {
+  let total = 0;
+  for (let i = 0; i < nums.length; i++) {
+    total += nums[i];
+  }
+  return total;
+}
+Exercise 6: Days Of The Week Exercise
+
+Solution #1:
+
+function returnDay(num) {
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  if (num < 1 || num > 7) {
+    return null;
+  } else {
+    return days[num - 1];
+  }
+}
+Solution #2:
+
+function returnDay(num) {
+  const days = [null, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  if (num < 1 || num > 7) {
+    return null;
+  } else {
+    return days[num];
+  }
+}
+Solution #3:
+
+function returnDay(num) {
+  if (num < 1 || num > 7) {
+    return null;
+  }
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  return days[num - 1];
+}
+Solution #4:
+
+function returnDay(num) {
+  if (num >= 1 && num <= 7) {
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    return days[num - 1];
+  }
+  return null;
+}
+Solution #5:
+
+function returnDay(num) {
+  if (num < 1 || num > 7) {
+    return null;
+  }
+  const days = {
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
+    7: 'Sunday'
+  };
+  return days[num];
+}
+Solution #6:
+
+function returnDay(num) {
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const day = days[num - 1];
+  // Using the JavaScript ternary operator syntax
+  return day ? day : null;
+}
+Solution #7:
+
+// A long approach:
+function returnDay(num) {
+  if (num < 1 || num > 7) {
+    return null;
+  } else if (num === 1) {
+    return ('Monday');
+  } else if (num === 2) {
+    return ('Tuesday');
+  } else if (num === 3) {
+    return ('Wednesday');
+  } else if (num === 4) {
+    return ('Thursday');
+  } else if (num === 5) {
+    return ('Friday');
+  } else if (num === 6) {
+    return ('Saturday');
+  } else if (num === 7) {
+    return ('Sunday');
+  }
+}
+Solution #8:
+
+// A long approach with a switch statement
+function returnDay(num) {
+  if (num >= 1 || num <= 7) {
+    switch (num) {
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Friday';
+      case 6:
+        return 'Saturday';
+      case 7:
+        return 'Sunday';
+      default:
+        return null;
+    }
+  }
+}

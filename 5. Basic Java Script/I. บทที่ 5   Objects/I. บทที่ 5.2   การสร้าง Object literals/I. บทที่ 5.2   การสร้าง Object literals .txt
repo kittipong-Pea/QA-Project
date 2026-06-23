@@ -1,0 +1,7 @@
+I. บทที่ 5.2   การสร้าง Object literals 
+
+Object ใช้	{name:"..."}
+อย่าลืม ตัว :
+สามารถสร้าง หลาย type ได้ 
+EX
+let personInfo ={fname:"alise",lname:"hope",age:"40",permition["1","2","3"]};

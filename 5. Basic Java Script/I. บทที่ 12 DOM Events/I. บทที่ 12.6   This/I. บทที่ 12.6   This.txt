@@ -1,0 +1,15 @@
+I. บทที่ 12.6   This
+
+This หมายถึง element ก้อนนี้ ดังนี้เราเลย ไม่ต้อง กระกาศตัวเเปล
+
+
+EX ให้ปุ่มทำงานเปลี่ยนสีพร้อมกัน
+
+for (const h of h1) {
+    h.addEventListener("click", function() {
+        console.log(h);
+        console.log(this);
+        const newColor = randomColor();
+        this.style.backgroundColor = newColor
+    })
+}

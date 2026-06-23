@@ -1,0 +1,36 @@
+I. บทที่ 8.5   Higher Order Function
+
+คือ function ที่อนุญาติ ให้ฟั่งชั่นอื่น return ออกมาช่วยได้
+ทำงานร่วมกัน
+
+EX
+function callTwice(func) {			ชื่อ callTwice ประกาศfunc
+    func();					ทำการ run 2 ที
+    func();
+}
+
+function laugh() {				สร้าง laugh
+    console.log("HAHAHAHAHAHAHHAHAHAHAHAH");	ทำการเเสดง
+}
+
+callTwice(laugh) //pass a function as an arg!	run function  callTwice //"HAHAHAHAHAHAHHAHAHAHAHAH"			โดยมี function laugh เข้ามาช่วย
+//"HAHAHAHAHAHAHHAHAHAHAHAH"
+
+
+EX2
+function callSixTime(func) {
+    func()
+    func()
+    func()
+    func()
+    func()
+    func()
+}
+
+function hello() {
+    console.log("Hello world");
+}
+
+callSixTime(hello)
+
+

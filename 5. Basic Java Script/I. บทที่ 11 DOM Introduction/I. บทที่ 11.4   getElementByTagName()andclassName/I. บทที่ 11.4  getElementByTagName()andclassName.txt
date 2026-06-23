@@ -1,0 +1,38 @@
+I. บทที่ 11.4  getElementByTagName()and className
+
+
+document.getElementByTagName("...")
+เวลาการเข้าถึงรูปก็จะทำการเข้าถึงเเบบ index 
+
+document.getElementByTagName("...")[0 ]
+
+EX  ประกาศให้ allImg =  TagName('img') ทำให้เวลาค้นชื่อTagname img ก็จะเจอทั้งหมดเลย
+let allImg = document.getElementsByTagName('img');
+
+console.log(allImg);
+
+for (const m of allImg) {
+    m.src = "URL";
+}
+
+
+document.getElementByClassName("...")
+เหมือนกันเลยเวลาเข้าถึงทีละตัว
+document.getElementByClassName("...")[0]
+
+EX
+let imgs = document.getElementsByClassName('square');
+console.log(imgs);
+
+imgs[2].src= "https://upload.wikimedia.org/wikipedia/commons...";
+
+หรือ
+// for (const i of imgs) {
+//     i.src = "https://upload.wikimedia.org/wikipedia/commons...";
+// }
+
+
+
+
+
+

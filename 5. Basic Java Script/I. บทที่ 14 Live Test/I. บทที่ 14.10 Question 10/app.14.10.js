@@ -1,0 +1,71 @@
+// function encrypt(text) {
+//     const alphabet = "abcdefghijklmnopqrstuvwxyz";
+//     let result = "";
+
+//     for (let i = 0; i < text.length; i++) {
+//         let char = text[i].toLowerCase(); // แปลงเป็นตัวพิมพ์เล็กเพื่อให้หา index ง่ายขึ้น
+        
+//         // เช็คว่าเป็นตัวอักษรภาษาอังกฤษหรือไม่
+//         if (alphabet.includes(char)) {
+//             let currentIndex = alphabet.indexOf(char);
+//             let newIndex = currentIndex - 5;
+
+//             // ถ้าติดลบ ให้วนกลับไปเริ่มจาก z (บวกด้วย 26)
+//             if (newIndex < 0) {
+//                 newIndex = newIndex + 26;
+//             }
+
+//             result += alphabet[newIndex];
+//         } else {
+//             // ถ้าเป็นช่องว่างหรือสัญลักษณ์อื่นๆ ให้ใส่ลงไปตรงๆ
+//             result += text[i];
+//         }
+//     }
+//     return result;
+// }
+
+// // ทดสอบตาม Example ในโจทย์
+// console.log(encrypt("cat"));           // ผลลัพธ์: "xvo"
+// console.log(encrypt("my name is b"));  // ผลลัพธ์: "ht ivhz dn w"
+
+
+let arr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
+           "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+function encrypt(str) { // "cat"
+    let arrAns = [] // ย้ายมาไว้ในนี้เพื่อให้ reset ค่าทุกครั้งที่รันใหม่
+    let splitedStr = str.split('') // ["c","a","t"]
+
+    for (const s of splitedStr) {
+        // --- ส่วนเพิ่มเติมเพื่อจัดการช่องว่าง (Space) ---
+        if (s === " ") {
+            arrAns.push(" ");
+            continue;
+        }
+        // ---------------------------------------
+
+        // s - 5 = คำตอบ => ? s อยู่ตำแหน่งอะไร
+        let inputIndex = arr.indexOf(s) // ตำแหน่งของ input
+
+        // inputIndex - 5 = ตำแหน่งของคำตอบ
+        let indexAns = inputIndex - 5 // ตำแหน่งของคำตอบ
+        let asnValue = arr[indexAns] //
+
+        if (asnValue) { // ถ้าหาเจอ
+            arrAns.push(asnValue)
+        } else { // ถ้าหาไม่เจอ
+            let numOfstart = inputIndex
+            let newLoop = 5 - numOfstart // จำนวนของตำแหน่งที่ต้องนับจาก z
+            let indexAns = (arr.length) - (newLoop)
+            let ans = arr[indexAns]
+            arrAns.push(ans);
+        }
+    }
+
+    let answer = arrAns.join('')
+    return answer
+}
+
+// ทดสอบรัน
+console.log(encrypt("cat"));           // xvo
+console.log(encrypt("my name is b"));  // ht ivhz dn w

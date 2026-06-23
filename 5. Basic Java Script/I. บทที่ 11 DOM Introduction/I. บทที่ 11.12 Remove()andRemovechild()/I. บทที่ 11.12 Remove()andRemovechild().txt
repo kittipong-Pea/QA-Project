@@ -1,0 +1,11 @@
+I. บทที่ 11.12 Remove()andRemovechild()
+
+
+EX
+ลบเลยโดยตรง
+h2.remove()
+
+
+เข้า parent เเล้วลบ
+EX
+p.removechild(h2)

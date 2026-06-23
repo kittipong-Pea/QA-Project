@@ -1,0 +1,40 @@
+I. บทที่ 4.5   concat(),index(),includes() and other
+
+-concat 	การรวมกัน
+name1.concat(name2).concat(name3)
+	EX
+	let arr1 = ["a", "b"];
+	let arr2 = ["c", "d"];
+	let result = arr1.concat(arr2);
+	ได้ ["a", "b", "c", "d"]
+
+-includes	หา valuse ที่เราต้องการ ผลลัพธ์จะตอบกลับมาเป็น Boolean(true,fals)
+name.includes(ข้อมูลใน array)
+	EX
+	name.includes("cat")
+	ได้ true
+
+-indexOf	การหาตำเเหน่ง
+name.indexOf("array valuse")
+	EX
+	name.indexOf("cat")
+	ได้ ตำเเหน่งที่ 0
+
+-join		คือการ เอา array 2 array มา join มาต่อกันกัน ไม่ใช่รวมกันเเบบ concat
+name.join()ถ้าไม่มีอะไรในวงเล็บมันก็จะติดกัน
+	EX
+	let arr = ["a", "b", "c"];
+	let result = arr.join("-");
+	ได้ "a-b-c"
+
+-reverse	การกลับ array
+name.reverse
+	EX
+	name.reverse()
+	ได้  6 5 4 3 2 1
+
+-slice	
+-splice
+-sort
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array

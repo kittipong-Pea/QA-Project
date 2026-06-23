@@ -1,0 +1,80 @@
+EX1
+// function multiply (x,y) {
+//   let sum = x * y
+//   console.log(sum);
+//   return sum
+// }
+
+//   multiply (2,3);
+//   multiply (9,9);
+//   multiply (5,4);
+
+EX2
+// function isShortsWeather(temperature) {
+//   if (temperature >= 75){
+//     console.log("True");
+//   }else if (temperature <= 75){
+//     console.log("False");
+//   }
+//   return isShortsWeather
+// }
+
+// isShortsWeather(80);
+// isShortsWeather(48);
+// isShortsWeather(75);
+
+
+EX3
+// function lastElement(arr) {
+//   if (arr.length === 0) {
+//     console.log(null);
+//   }
+//   let i = arr[arr.length - 1];
+//   console.log(i);
+//   return lastElement;
+// }
+
+// lastElement([3, 5, 7]); 
+// lastElement([1]);       
+// lastElement([]);        
+
+
+EX4
+// function capitalize(str) {
+//   let i = str[0].toUpperCase() + str.slice(1);
+//   console.log(i);
+
+//   return capitalize;
+// }
+
+// capitalize("eggplant");      
+// capitalize("pamplemounsse"); 
+// capitalize("squid");         
+
+
+EX5
+// function sumArray(arr) {
+//   let sum = arr.reduce((sum, num) => sum + num, 0);
+//   console.log(sum);
+//   return sumArray;
+// }
+
+// sumArray([1, 2, 3]);     
+// sumArray([2, 2, 2, 2]);  
+// sumArray([50, 50, 1]);   
+
+
+EX6
+// function returnDay(num) {
+//   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+//   if (num < 1 || num > 7) return null;
+  
+//   let result = days[num - 1];
+//   console.log(result);
+//   return returnDay;
+// }
+
+// returnDay(1); 
+// returnDay(7); 
+// returnDay(4);
+// returnDay(0); 

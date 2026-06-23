@@ -1,0 +1,40 @@
+I. บทที่ 6.4   Nested Loop
+
+ลูป ซ้อนลูป ซ้อนลูป ไปเรื่อยๆ
+
+EX
+
+let str = 'LOL';
+for (let i = 0; i <= 5; i++) {
+    console.log("Outer:", i);
+    for (let j = 0; j < str.length; j++) {
+        console.log('  Inner:', str[j]);
+    }
+}
+ผลที่ออก
+Outer: 0
+Inner: L
+Inner: O
+Inner: L
+Outer: 1
+Inner: L
+Inner: O
+Inner: L
+จน Other ครบ 5
+
+
+EX2
+
+let listOfAnimal = [
+    ["Whale", "Wildcat", "Wolf"],
+    ["Panther", "Parrot", "Partridge"],
+    ["Jackal", "Jaguar", "Jay"]
+];
+
+for (let i = 0; i < listOfAnimal.length; i++) {
+    console.log(listOfAnimal[i]);
+
+    for (let j = 0; j < listOfAnimal[i].length; j++) {
+        console.log(listOfAnimal[i][j]);
+    }
+}

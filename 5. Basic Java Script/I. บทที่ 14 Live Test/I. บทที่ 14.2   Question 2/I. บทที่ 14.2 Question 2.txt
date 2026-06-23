@@ -1,0 +1,54 @@
+I. บทที่ 14.2 Question 2
+
+Question 2 โจทย์: จงเขียน function แปลงจากข้อมูลที่เป็น String เป็น Array
+Example:
+makeArr("Westride") ผลลัพธ์ ["W", "e", "s", "t", "r", "i", "d", "e"]
+makeArr("Zoo") ผลลัพธ์ ["Z", "o", "o"]
+makeArr("ZxCvBn") ผลลัพธ์ ["Z", "x", "C", "v", "B", "n"]
+
+
+EX เเบบ 1
+// เข้าถึงตัวอักษรแต่ละตัวของ string
+// สร้าง array
+// เอาตัวอักษรตัวนั้น ใส่ลงไปใน array
+// วนทำเรื่อยๆจนครบตัวอักษร
+
+function makeArr(str) {
+    let arr = []
+    let firstChar = str[0] // w
+    arr.push(firstChar) // ["w"]
+
+    let secondChar = str[1] // e
+    arr.push(secondChar) // ["w", "e"]
+
+}
+
+makeArr("westride");
+
+EX เเบบ 2
+for (const e of str) {
+        // e = w = ["w"]
+        // e = e = ["w", "e"]
+        // e = s = ["w", "e", "s"]
+        let char = e
+        arr.push(e)
+    }
+    return arr
+
+}
+
+console.log(makeArr("westride"));
+
+EX เเบบ 3 ง่าย สุดสั้นสุด เเต่ที่เหลือเอาไว้ฟึก
+function makeArr(str) {
+    return str.split("");
+}
+
+// ทดสอบ
+console.log(makeArr("WeStride"));  // ["W", "e", "S", "t", "r", "i", "d", "e"]
+console.log(makeArr("Zoo"));       // ["Z", "o", "o"]
+console.log(makeArr("ZxCvBn"));    // ["Z", "x", "C", "v", "B", "n"]
+
+
+
+

@@ -1,0 +1,25 @@
+I. บทที่ 9.6   SetTimeout and setinterval
+
+- SetTimeout	ทำให้ทำงานเเล้วหยุดทุกๆ กี่วิ
+นับเป็น min sec
+- Setinterval	ทำloop ทุกๆกี่วิ
+
+EX
+setTimeout
+
+console.log("Hello");
+setTimeout(() => {
+    
+console.log(".....");
+}, 3000);
+
+
+
+setInterval
+
+setInterval(() => {
+    console.log(Math.random());
+}, 3000);
+
+
+

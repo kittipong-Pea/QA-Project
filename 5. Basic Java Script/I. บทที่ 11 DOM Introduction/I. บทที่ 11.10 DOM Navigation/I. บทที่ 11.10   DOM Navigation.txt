@@ -1,0 +1,57 @@
+I. บทที่ 11.10   DOM Navigation
+
+parentElement
+parentNote เหมือนกันใช่อันไหนก็ได้
+
+child
+
+nextElementSibling
+previousElementSibling	
+
+
+ปกติเวลาเราดู มันละเป็น layer layer เป็นชั้นๆ เช่นชั้นของ<body>มี <p>ใน<p>มี<a> อยู่เป็นชั้นๆเเบบนี้
+*** ต้อง อยู่ใน กลุ่ม เดียวกันด้วย ***
+layer ที่สูงกว่า เค้าจะเรียก  parent(ผู้ปกครอง)
+layer ที่ต่่ำกว่า เเล้วอยู่ด้านใน เรียก  child(ลูก)
+
+EX
+const name = document.querySelector('b')
+
+name.parentElement
+เอาไว้ดูว่า tag b มี parent อะไรบ้าง
+
+----------------------------------------------------
+child
+
+EX
+const parent = document.querySelector('b')
+
+parent.child
+ไปดูว่า parent มี child อะไรอยู่บ้าง
+
+parent.childElementCount
+ไว้นับว่า parent มี child กี่ตัว
+
+
+------------------------------------------------------
+nextElementSibling
+คือ การ gel element ที่อู่ถัดไป ใน level เดียวกัน จากตัวที่ประกาศ
+EX
+const sq = document.quearySelector('.slike')
+
+sq.nextElementSibling 
+เอารูปถัดไปจาก slike
+sq.nextElementSibling .nextElementSibling 
+ทำเเบบนี้ next ไป2 ตัวได้
+
+-----------------------------------------------------
+previousElementSibling	
+ตรงกันข้ามกัน   เข้าถึง element ก่อนหน้าใน level เดียวกัน 
+
+-----------------------------------------------------
+
+
+
+
+
+

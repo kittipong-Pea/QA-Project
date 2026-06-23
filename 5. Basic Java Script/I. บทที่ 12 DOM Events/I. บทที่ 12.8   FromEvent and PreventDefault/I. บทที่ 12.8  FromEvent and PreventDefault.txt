@@ -1,0 +1,13 @@
+I. บทที่ 12.8  FromEvent and PreventDefault
+
+
+FromEvent เหมือนทำเเบบ form 
+PreventDefault ทำให้เวลา ทำอะไรก็ตามไม่มีการ refash 
+
+const form = document.querySelector('#shelterForm')
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault()
+    console.log(e);
+    console.log("Submit");
+})

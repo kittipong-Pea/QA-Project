@@ -1,0 +1,19 @@
+I. บทที่ 3.12 Logical or
+
+or เมื่อ มีข้างใดข้างหนึ่งเป็น true ก็จะ true เลย
+
+true || true เป็น true
+true || false เป็น true
+false ||  false เป็น false
+
+
+คำสั่งใช้ || 	
+
+EX
+let jobs = prompt("pls enter your job")
+
+if(jobs == "student" || jobs == "teacher"){
+    alert("valids")
+}else{
+    alert("Invalids")
+}

@@ -1,0 +1,15 @@
+I. บทที่ 7.4   Arguments มีหลายตัวได้
+
+
+EX มากกว่า น้อยกว่า เท่ากับ
+function findLargest(x, y) {
+  if (x > y) {
+    console.log(`${x} is larger!`);
+  }
+  else if (x < y) {
+    console.log(`${y} is larger!`);
+  }
+  else {
+    console.log(`${x} and ${y} are equal!`);
+  }
+}

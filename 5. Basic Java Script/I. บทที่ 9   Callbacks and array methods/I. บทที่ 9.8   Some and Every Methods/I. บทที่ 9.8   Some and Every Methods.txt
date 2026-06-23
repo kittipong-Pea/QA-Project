@@ -1,0 +1,64 @@
+I. บทที่ 9.8   Some and Every Methods
+
+
+Every  จะเป๋นการคืนค่าของ true กับ false
+
+Every เป็นการเช็คทุกๆ ตัว ว่าตรงกับเงื่อนไขไหม
+
+EX
+
+const words = ["dog", 'dig', 'log', 'bag', 'wag'];
+
+words.every(word => {
+    return word.length === 3;
+}) //true
+
+words.every(word => word[0] === 'd'); //false
+
+words.every(w => {
+    let last_letter = w[w.length - 1];
+    return last_letter === 'g'
+}) //true
+
+
+Some จะเป๋นการคืนค่าของ true กับ false
+Some เป็นการเช็ค เเค่บางตัว ว่าตรงกับเงื่อนไขไหม
+
+EX
+
+const words = ['dog', 'jello', 'log', 'cupcake', 'bag', 'wag'];
+
+//Are there any words longer than 4 characters?
+words.some(word => {
+    return word.length > 4;
+}) //true
+
+//Do any words start with 'Z'?
+words.some(word => word[0] === 'Z'); //false
+
+//Do any words contain 'cake'?
+words.some(w => w.includes('cake')) //true
+
+EX
+✅ Solution #1 (แบบดั้งเดิม)
+function allEvens(arr) {
+  return arr.every(function (num) {
+    return num % 2 === 0;
+  });
+}
+ใช้ function ปกติ
+เหมาะกับมือใหม่ อ่านเข้าใจง่าย
+เขียนยาวหน่อย
+✅ Solution #2 (กึ่ง modern)
+const allEvens = function (arr) {
+  return arr.every(num => num % 2 === 0);
+}
+ยังใช้ function แต่ข้างในใช้ arrow function
+สั้นลง อ่านง่ายขึ้น
+✅ Solution #3 (modern + สั้นสุด)
+const allEvens = arr => arr.every(num => num % 2 === 0);
+ใช้ arrow function ทั้งหมด
+สั้นและนิยมมากใน JavaScript ยุคใหม่
+
+
+

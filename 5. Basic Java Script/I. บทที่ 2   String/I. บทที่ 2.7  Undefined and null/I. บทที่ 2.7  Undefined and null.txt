@@ -1,0 +1,9 @@
+I. บทที่ 2.7  Undefined and null
+
+
+Undefined and null
+
+
+null คือว่าว่างที่ไม่ใช่ 0
+
+Undefined ไม่มีจริง หรือ หาไม่เจอ

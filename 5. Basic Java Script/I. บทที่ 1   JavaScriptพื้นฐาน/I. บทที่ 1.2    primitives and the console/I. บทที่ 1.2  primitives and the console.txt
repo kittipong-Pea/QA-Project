@@ -1,0 +1,11 @@
+I. บทที่ 1.2  primitives and the console
+
+number
+string 
+Boolean ใช้หรือไม่ 
+null
+undefied
+
+
+the console
+เข้าgoogle chrome คลิกขวา inspect

@@ -1,0 +1,59 @@
+DOM Events Cheat Sheet
+DOM Events คืออะไร
+คือเหตุการณ์ที่เกิดขึ้นในหน้าเว็บ เช่น การคลิกหรือการเคลื่อนไหวของเมาส์ ซึ่งสามารถถูกจับและจัดการผ่าน JavaScript เพื่อสร้างปฏิสัมพันธ์กับผู้ใช้
+Events - คือการที่สามารถจับการกระทำของผู้ใช้ เช่น คลิก, โฮเวอร์, แป้นพิมพ์ที่ถูกกด
+Inline Events - การจัดการ event โดยตรงใน HTML element
+The Onclick Property - กำหนดฟังก์ชันที่จะถูกเรียกเมื่อมีการคลิก element
+addEventListener - สามารถเพิ่มหลาย event listener ให้กับ element เดียวกัน
+Events & The Keyword 'this' - ในฟังก์ชันที่เรียกจาก event, this อ้างอิงไปยัง element ที่ event ถูก attached
+Form Events & preventDefault - จัดการ event ของฟอร์ม เช่น submit
+preventDefault ป้องกันการกระทำตามปกติของ event เช่น ป้องกันการส่งฟอร์ม
+Input & Change Events - input จับการเปลี่ยนแปลงทันทีบนฟิลด์ input
+change จับการเปลี่ยนแปลงเมื่อฟิลด์ input มีการ commit (เช่น เมื่อ focus ถูกย้ายออก)
+Event Bubbling - การที่ event แพร่กระจายขึ้นไปยัง parent elements
+สามารถหยุดการ bubble ด้วย event.stopPropagation()
+ตัวอย่างการใช้งานในโค้ด:
+// Event โฮเวอร์
+<div id="hoverDiv">Hover over me!</div>
+// Event โฮเวอร์ โค้ด JavaScript
+document.getElementById('hoverDiv').addEventListener('mouseover', function() {
+    alert('Mouse is over the div!');
+});
+// Inline Events
+<button onclick="alert('Button clicked!')">Click me!</button>
+// The Onclick Property
+const button = document.getElementById('myButton');
+button.onclick = function() {
+    alert('Clicked!');
+};
+// addEventListener
+button.addEventListener('click', function() {
+    console.log('Button clicked!');
+});
+// Events & The Keyword 'this'
+button.addEventListener('click', function() {
+    console.log(this); // อ้างอิงไปยัง 'button'
+});
+// Form Events & preventDefault
+const form = document.querySelector('form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // เขียนโค้ดเพื่อจัดการ form
+});
+// Input & Change Events
+const input = document.querySelector('input');
+input.addEventListener('input', function() {
+    console.log('Input changed to: ' + this.value);
+});
+// Event Bubbling
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+​
+child.addEventListener('click', function(event) {
+    alert('Child clicked!');
+    event.stopPropagation();
+});
+​
+parent.addEventListener('click', function() {
+    alert('Parent clicked!');
+});

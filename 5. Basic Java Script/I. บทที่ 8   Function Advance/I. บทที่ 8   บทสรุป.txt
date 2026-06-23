@@ -1,0 +1,59 @@
+Advanced Functions Cheat Sheet
+Advanced Functions คืออะไร
+ฟังก์ชันที่มีความซับซ้อนและขั้นสูงกว่าปกติ
+Block Scope - การใช้ let และ const ในการประกาศตัวแปรใน block ({}) ช่วยสร้าง scope ที่จำกัดให้ตัวแปรนั้นๆ ใช้ได้เฉพาะใน block นั้น
+Returning Functions - สามารถคืนค่าอื่นๆ ได้ไม่จำกัดแค่ค่าพื้นฐาน เช่น คืนค่าเป็น functions อื่น
+Closure - ฟังก์ชันที่คืนค่าจากฟังก์ชันอื่นสามารถจำค่าของตัวแปรใน scope ของตัวมันเองได้ ซึ่งเรียกว่า closure
+Function Expressions - ช่วยให้สามารถกำหนดฟังก์ชันให้กับตัวแปรได้
+สามารถใช้เป็น Anonymous Function (ฟังก์ชันไม่มีชื่อ) หรือมีชื่อก็ได้
+สามารถใช้เป็น arguments ในการเรียกฟังก์ชันอื่น หรือคืนค่าจากฟังก์ชัน
+Function Expressions และ Block Scope - ใช้ let หรือ const จะถูกจำกัดให้อยู่ภายใน block scope เหมือนกับการประกาศตัวแปรปกติ ซึ่งหมายความว่าฟังก์ชันจะไม่สามารถเรียกใช้จากนอก block ที่มันถูกประกาศ
+ตัวอย่างการใช้งานในโค้ด:
+// Block Scope กับ let และ const
+{
+    let message = 'Hello, Block Scope!';
+    console.log(message); // ข้อความนี้สามารถเข้าถึงได้เฉพาะภายใน block
+}
+// console.log(message); // Error: message is not defined
+// Returning Functions
+function createMultiplier(multiplier) {
+    return function(number) {
+        return number * multiplier;
+    };
+}
+const double = createMultiplier(2);
+console.log(double(5)); // ผลลัพธ์คือ 10
+// Closure
+function createCounter() {
+    let count = 0;
+    return function() {
+        count += 1;
+        return count;
+    };
+}
+const counter = createCounter();
+console.log(counter()); // ผลลัพธ์คือ 1
+console.log(counter()); // ผลลัพธ์คือ 2
+// Function Expressions
+const add = function(x, y) {
+    return x + y;
+};
+console.log(add(3, 4)); // ผลลัพธ์คือ 7
+// Anonymous Function Expression
+const square = function(number) {
+    return number * number;
+};
+console.log(square(4)); // 16
+// Named Function Expression
+const factorial = function fact(n) {
+    return n < 2 ? 1 : n * fact(n - 1);
+};
+console.log(factorial(5)); // 120
+// Function Expressions กับ Block Scope
+{
+    const greet = function(name) {
+        console.log('Hello, ' + name);
+    };
+    greet('Alice'); // ผลลัพธ์คือ 'Hello, Alice'
+}
+// greet('Alice'); // Error: greet is not defined

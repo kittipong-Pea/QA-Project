@@ -1,0 +1,23 @@
+I. บทที่ 7.2   การสร้าง Function เเรก
+
+
+มี2 step ในการใช้
+
+define	เขียนว่าต้องการทำอะไร 
+run	เริ่ม
+
+function functionname(){
+//do something
+}	
+
+การrun function 
+functionname() เเค่นี้เลย
+
+EX
+function grumpus() { 
+    console.log('ugh...you again...');
+    console.log('for the last time...');
+    console.log('LEAVE ME ALONE!!!');
+}
+
+grumpus()

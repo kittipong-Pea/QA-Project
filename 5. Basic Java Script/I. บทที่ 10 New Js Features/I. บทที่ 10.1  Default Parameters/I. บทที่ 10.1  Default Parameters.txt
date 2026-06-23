@@ -1,0 +1,28 @@
+I. บทที่ 10.1  Default Parameters
+
+ค่าด้านใน เรียกได้หลายอย่างจะเป็น 
+input ,values ,Parameters
+
+ถ้าเป็นเเบบนี้มันจะ run ไม่ได้ ค่า x หรือ y จะเป็น undifined
+เเล้วเวลาพอจะให้ return มันจะเป็น nun เเทน
+
+function add(x,y) {
+    return x + y
+}
+
+console.log(add 8 );
+
+
+ดังนั้นเลยต้องตั้งค่า Default Parameters
+
+EX Default Parameters
+
+function add(x = 0, y = 0) {
+    return x + y
+}
+
+console.log(add 8 );
+
+
+
+

@@ -1,0 +1,10 @@
+Decision Making
+
+Learning Goals
+มาเริ่มต้นทำความรู้จักกับแนวคิดในการควบคุมเงื่อนไขต่าง ๆ ใน JS เพื่อมาใช้แก้ปัญหาที่มีหลายกระบวนการ
+ในหลักสูตรนี้คุณจะได้ทำความเข้าใจ:
+Truthy and Falsy Values
+Comparison Operators
+Else-If Statement
+Switch-Case Statement
+Console

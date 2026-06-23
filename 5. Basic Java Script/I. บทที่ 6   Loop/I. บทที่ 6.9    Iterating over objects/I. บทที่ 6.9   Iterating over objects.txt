@@ -1,0 +1,28 @@
+I. บทที่ 6.9   Iterating over objects
+
+for of เก็บ object  ไม่ได้
+ต้องใช้
+for in ใช้กับ object
+
+EX
+
+const score = {
+    tommy : 50,
+    alice : 40,
+    jan : 89,
+    ball: 80,
+    first: 30
+}
+
+
+for (const s in score) {
+    console.log(`score of ${s} is ${score[s]}`);
+}
+
+
+
+object.key เอ าไว้นับเลขข้อมูลใน array
+
+
+
+

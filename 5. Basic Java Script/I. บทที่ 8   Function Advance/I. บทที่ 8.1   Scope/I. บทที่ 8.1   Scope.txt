@@ -1,0 +1,19 @@
+I. บทที่ 8.1   Scope
+
+
+Scope คือ ขอบเขตที่ตัวแปรสามารถถูกเข้าถึงได้
+พวก {} ไง
+
+Scope จะไม่ทำงานด้านนอก{} ถ้าต้องการทำก็ต้องประกาศตัวเเปลด้านนอก scope
+
+EX
+let nickName = "Anna"        // Global Scope
+
+function getName(params) {
+    let nickName = "Alice"   //ยกเว้นเเต่การ recall ใหม่ nickName = "Alice" เเบบนี้จะเปลี่ยนเลย
+}
+
+getName()
+console.log(nickName, "name"); // "Anna name"
+
+เเบบนี้มันจะเเสดง Anna เพราะทำงานนอก scope

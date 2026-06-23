@@ -1,0 +1,19 @@
+I. บทที่ 11.3  getElementById()
+
+เวลาเราจะทำอะไรกับ DOM ซักอย่างมันจะมี 2 step 
+
+1. select
+2. manipulate
+
+
+เริ่มจากการ select
+ต้องเข้าถึง TAG ให้ถูกต้อง
+
+Document.getElementById('id')
+
+ID จะอยู่ตรงพวกหัว HTML 
+
+EX
+
+ลองไปหาข้ิอมูลได้
+https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById

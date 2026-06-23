@@ -1,0 +1,10 @@
+I. บทที่ 2.4  String Methods
+
+think.method()
+
+think.toLocaleUpperCase()		เปลี่ยนเป็นตัวใหญ่
+think.toLocaleLowerCase()		เปลี่ยนเป็นตัวเล็ก
+think.trim()				ลบช่องว่างทั้งหมด
+
+think.trim().toLocaleUpperCase()	เขียนต่อกันเเบบนี้ได้่เลย
+การทำงานจะเป็น จากซ้ายไปขวา ดังนั้นถ้ามีคำสั่งทับกันก็จะเเสดง อันล่าสุด

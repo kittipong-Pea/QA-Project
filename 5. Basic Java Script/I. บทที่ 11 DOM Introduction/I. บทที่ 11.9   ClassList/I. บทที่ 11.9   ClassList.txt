@@ -1,0 +1,28 @@
+I. บทที่ 11.9   ClassList
+
+classList
+
+EX
+ปกติเวลา อยาก  set 2  class จะเขียนเเบบนี้
+const currentClass = 'purple';
+h2.setAttribute('class', `${currentClass} border`);  
+
+เเต่ถ้าใช้ classList
+จะง่ายกว่า
+h2.classList.add('purple', 'border');  
+
+เวลา get ออกมา
+h2.classlist
+
+เวลาลบ 
+h2.classlist.remove('border')
+
+เวลา check ว่ามี element นั้นอยู่ไหม
+h2.classlist.contains('border')
+จะออกมาเป็น true  กับ false
+
+เอาไว้ เปิด-ปิด คำสั่งที่ใช้งาน
+h2.classlist.toggle('border') ยกตัวอย่างพวก dropdown 
+
+
+

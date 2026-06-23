@@ -1,0 +1,53 @@
+I. บทที่ 9.3   Intro to Arrow Function
+
+
+Arrow Function คือ วิธีเขียนฟังก์ชันแบบสั้นกว่าปกติ (ใช้ลูกศร =>)
+การคำงานคล้ายๆ  Function Expression
+
+1. Function Declaration (การประกาศฟังก์ชัน)
+javascriptfunction add(x, y) {
+    return x + y;
+}
+
+add(5, 3);  // 8
+
+2. Function Expression (การแสดงออกของฟังก์ชัน)
+javascriptconst add = function(x, y) {
+    return x + y;
+}
+
+add(5, 3);  // 8
+
+3. Arrow Function Expression
+javascriptconst add = (x, y) => x + y;
+
+add(5, 3);  // 8
+
+
+EX 
+
+-Function Expression
+
+const sum = function (x,y) {
+    return x + y
+}
+
+console.log(sum(4,7));
+
+-Arrow Function
+
+const sum1 = (x,y) => {
+    return x + y
+}
+
+console.log(sum1(5,5));
+
+EX3
+const greet = (name) => {
+    return "Hey " + name + "!";
+}
+
+console.log(greet("Hagrid"));  
+console.log(greet("Luna"));   
+
+

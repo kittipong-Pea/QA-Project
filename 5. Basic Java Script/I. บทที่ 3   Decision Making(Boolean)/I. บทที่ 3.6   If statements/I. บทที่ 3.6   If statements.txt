@@ -1,0 +1,20 @@
+I. บทที่ 3.6   If statements
+
+จะ run ต่อเมื่อ if เป็นจริงเท่านั้น
+
+EX  ถ้า rating ไม่เท่ากับ 3 จะไม่ทำในปีกกาต่อ 
+let rating = 3 ;
+
+if (rating===3)
+{
+console.log('you are good');
+}
+
+EX2 ถ้าเลขคู่ ไปต่อ
+let input = prompt('fill number');
+
+let num = Number(input);
+
+if (num % 2 === 0) {
+  console.log("even");
+}

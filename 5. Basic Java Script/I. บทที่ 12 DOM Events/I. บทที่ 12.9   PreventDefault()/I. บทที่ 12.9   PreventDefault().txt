@@ -1,0 +1,13 @@
+I. บทที่ 12.9   PreventDefault()
+
+PreventDefault() คือ ไม่ รีเฟส
+EX
+
+const form = document.querySelector('#shelterForm')
+const input = document.querySelector('#inputty')
+const span = document.querySelector('#sp')
+form.addEventListener("submit", function (e) {
+    e.preventDefault();		
+    let newinput = input.value				
+    span.innerText = newinput
+})

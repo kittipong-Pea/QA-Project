@@ -1,0 +1,37 @@
+I. บทที่ 14.7 Question 7
+Question 7 โจทย์: จงเขียน function แทนที่ช่องว่างด้วยเครื่องหมาย "-"
+Example:
+replaceSpace("Hello world") => result "Hello-world"
+replaceSpace("My name is bob") => result "My-name-is-bob"
+
+
+EX เเบบที่1
+function replaceSpace(str) {
+    return str.replaceAll(" ", "-");
+}
+
+// ทดสอบ
+console.log(replaceSpace("Hello world")); // "Hello-world"
+console.log(replaceSpace("My name is bob")); // "My-name-is-bob"
+
+
+
+EX เเบบที่2
+function replaceSpace(str) {
+    return str.split(" ").join("-");
+    
+}
+// ทดสอบ
+console.log(replaceSpace("Hello world")); // "Hello-world"
+console.log(replaceSpace("My name is bob")); // "My-name-is-bob"
+
+
+EX เเบบที่3
+
+function replaceSpace(str) {
+    let replaced = str.replaceAll(' ', '-')
+    return replaced
+}
+
+let result = replaceSpace("My name is bob")
+console.log(result);

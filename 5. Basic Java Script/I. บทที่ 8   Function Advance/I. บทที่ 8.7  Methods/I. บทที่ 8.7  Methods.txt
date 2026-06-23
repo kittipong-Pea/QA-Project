@@ -1,0 +1,105 @@
+I. บทที่ 8.7  Methods
+
+Methods คือ ฟังก์ชันที่ถูกเก็บไว้เป็น property ของ object
+อธิบายง่ายๆ:
+
+เมื่อฟังก์ชันอยู่ภายใน object เราเรียกมันว่า "method"
+เมื่อฟังก์ชันอยู่แยกต่างหาก เราเรียกมันว่า "function"
+เอาไว้จัดระเบียบโค้ต
+
+EX
+
+const math = {
+    multiply : function(x, y) {
+        return x * y;
+    },
+    divide   : function(x, y) {
+        return x / y;
+    },
+    square   : function(x) {
+        return x * x;
+    }
+};
+
+
+EX
+
+1. Function แยกต่างหาก (ไม่มี object)
+javascriptfunction multiply(x, y) {
+    return x * y;
+}
+
+function divide(x, y) {
+    return x / y;
+}
+
+multiply(5, 3);  // เรียกใช้ตรงๆ
+divide(10, 2);
+2. Methods (ฟังก์ชันอยู่ใน object)
+javascriptconst math = {
+    multiply: function(x, y) {
+        return x * y;
+    },
+    divide: function(x, y) {
+        return x / y;
+    }
+};
+
+math.multiply(5, 3);  // เรียกผ่าน object
+math.divide(10, 2);
+
+
+EX3 เขียนเเบบ short hand
+
+จาก
+function divide(x,y) {
+    return x / y
+}
+
+const math = {
+    add : function (x,y) {
+        return x + y
+    },
+    minus : function (x,y) {
+        return x - y
+    },
+    divide : function (x,y) {
+        return x / y
+    },
+}
+
+console.log(math.add 3,9 );
+console.log(math.minus 3,9 );
+console.log(math.divide 3,9 );
+
+
+เป็น ไม่ประกาศ function
+const math = {
+    add(x,y){
+        return x + y
+    },
+    minus(x,y){
+        return x - y
+    },
+    divide(x,y){
+        return x / y
+    }
+}
+
+console.log(math.add 3,9 );
+console.log(math.minus 3,9 );
+console.log(math.divide 3,9 )
+
+
+EX4
+const square ={
+    area(x){
+        return x * x
+    },
+    perimeter(x){
+        return x * 4
+    } 
+}
+console.log(square.area(10));
+console.log(square.perimeter(10));
+

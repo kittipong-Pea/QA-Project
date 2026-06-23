@@ -1,0 +1,10 @@
+I. บทที่ 11.1  DOM คืออะไร
+
+
+เมื่อทำงานรวม กับ html css javascrip มันจะไปอยู่ยังไง
+
+D	Document
+O	Objext
+M	Model
+
+ความหมายคือ การเเสดงผล การตอบโต้ สื่อสาร interaction กับ user บน พวก web page เป็นต้น

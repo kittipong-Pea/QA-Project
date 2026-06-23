@@ -1,0 +1,15 @@
+I. บทที่ 2.3  Random number and the math object
+
+มีหลายตัวลองไปเช็คดู
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
+
+Math.round() 	คือ ปัดเศษทศนิยม มากกว่า5 ปัดขึ้น 
+Math.ceil()    	คือ มีเศษปัดขึ้นเลย
+Math.max()   	คือ ค่ามาก
+Math.min()      	คือ ค่าน้อย
+Math.floor() 	คือ ตัดทศนิยมออกไปเลย
+Math.pow()	คือ ยกกำลัง (เลข,เลข)
+Math.random()	คือ การสุ่มเลข
+
+Math.floor(Math.random()*10) สุ่มเลขเเบบไม่ีทศนิยมเเล้วเป็นจำนวนเต็ม

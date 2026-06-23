@@ -1,0 +1,38 @@
+I. บทที่ 10.6  Destructuring Parameters
+
+เหมือนกันเเค่เอามาใช้ Parameters ของ function
+
+โดยปกติเวลาเขียน
+const fullName = ({ first }) => {
+  console.log(first);
+};
+
+
+ใช้วิธีเเบบ Destructuring
+const fullName = ({first,last}) => {
+  return first + " " + last
+
+}
+
+let runner = {
+    first : "tommy",
+    last : "alice",
+    country : "USA"
+}
+
+console.log(fullName(runner));
+
+EX2
+const sum = ([fisrt, second]) => {
+  return fisrt + second
+}
+
+let runner = {
+    first : "tommy",
+    last : "alice",
+    country : "USA"
+}
+
+console.log(sum([3,7]));
+
+

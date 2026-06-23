@@ -1,0 +1,32 @@
+I. บทที่ 11.5  querySelector() and querySelectorAll
+
+querySelector() method สำหรับค้นหา HTML element ตัวแรกที่ตรงกับ CSS selector ที่กำหนด
+ผลลัพธ์จะออกมา 1 ค่าเท่านั้น เป็น element เเรก
+EX
+document.querySelector('h1');
+จะเเสดง  h1 ตัวเเรกเเละอันเดียวออกมา
+ต่างกับ tagname จะเเสดง ที่ใช้ 'h1' ทั้งหมด
+
+querySelectorAll มันจะ return ออกมาเป็น collation  เหมือนพวก Tagclass เลย 
+EX
+document.querySelectorAll('h1');
+document.querySelectorAll('h1')[0];
+จะเเสดง h1 ทั้งหมด return เเบบ index หรือ ใช้ เเบบ object ได้
+
+EX เวลาใช้งานจริงใน vs
+
+let links = document.querySelectorAll('p a');	ให้ link = หา tag p เเละเข้าไป หา tag a ต่อ 
+console.log(links);
+
+for (const l of links) {
+    console.log(l.href);			หา  tag ที่เก็บ URL ปลายทาง ของลิงก์
+}
+
+EX2
+
+// เลือกทุกองค์ประกอบที่มี class "done" และบันทึกไว้ใน variable doneTodos
+const doneTodos = document.querySelectorAll('.done');
+
+// เลือก checkbox หนึ่งตัว และบันทึกไว้ใน variable checkbox
+// ระวัง มี input element หลายประเภท ควรเลือกใช้ type attribute
+const checkbox = document.querySelector('input[type="checkbox"]');

@@ -1,0 +1,11 @@
+I. บทที่ 1.8  Booleans
+
+true or false มีความเป็นไปได้เเค่ 2 อย่าง
+
+let name = true or false
+EX
+let passed = true
+
+เปลี่ยน  type ข้ามไปข้ามมาได้เลย 
+ด้วยความที่ง่ายเลยต้องตั้ง ให้สมเหตุสมผล
+

@@ -1,0 +1,74 @@
+I. บทที่ 14.15 Question 15
+
+Question 15 (ซึ่งเป็นระบบถอดรหัสของนายโรเบิร์ต) 
+นายโรเบิร์ต ต้องการเข้ารหัสข้อความที่ใช้คุยกับเพื่อน โดยเขาจะเปลี่ยนทุกตัวสระ (a, e, i, o, u) โดยเขียนด้วยสระตัวนั้นก่อน ตามด้วยตัวอักษร 'p' แล้วตามด้วยสระตัวนั้นอีกครั้ง ส่วนตัวอักษรอื่นๆ เหมือนเดิม
+ตัวอย่างเช่น
+คำว่า "kemija" (แปลว่าเคมี) จะกลายเป็น "kepemipijapa"
+คำว่า "paprika" จะกลายเป็น "papapripikapa"
+จงเขียนโปรแกรมที่ไว้ใช้ถอดรหัสของนายโรเบิร์ต
+Example
+Input: zepelepenapa papapripikapa
+Output: zelena paprika
+Input: bapas jepe doposapadnapa opovapa kepemipijapa
+Output: bas je dosadna ova kemija
+
+EX1
+function decodeRobert(text) {
+    const vowels = "aeiou";
+    let result = "";
+    
+    for (let i = 0; i < text.length; i++) {
+        // เก็บตัวอักษรปัจจุบันลงในผลลัพธ์
+        result += text[i];
+        
+        // ถ้าตัวอักษรปัจจุบันเป็นสระ ให้กระโดดข้ามตัวอักษรไป 2 ตำแหน่ง (ตัว 'p' กับ สระซ้ำ)
+        if (vowels.includes(text[i].toLowerCase())) {
+            i += 2;
+        }
+    }
+    
+    return result;
+}
+
+// ทดสอบตามโจทย์
+console.log(decodeRobert("zepelepenapa papapripikapa")); 
+// Output: "zelena paprika"
+
+console.log(decodeRobert("bapas jepe doposapadnapa opovapa kepemipijapa")); 
+// Output: "bas je dosadna ova kemija"
+
+EX2
+
+const input = "zepelepenapa papapripikapa";
+let newString = "";
+
+for (let index = 0; index < input.length; index++) {
+    const char = input[index];
+    newString += char; // เก็บตัวอักษรปัจจุบันไว้ก่อน
+
+    // ถ้าตัวอักษรเป็นสระ ให้กระโดดข้ามตัว 'p' และสระซ้ำ (รวม 2 ตำแหน่ง)
+    if (["a", "e", "i", "o", "u"].includes(char.toLowerCase())) {
+        index += 2;
+    }
+}
+
+console.log(newString); 
+// ผลลัพธ์: "zelena paprika"
+
+EX3
+
+const input = "zepelepenapa papapripikapa";
+let newString = "";
+
+for (let index = 0; index < input.length; ) {
+    const char = input[index];
+    if (["a", "e", "i", "o", "u"].includes(char)) {
+        newString = newString + char;
+        index = index + 3;
+    } else {
+        newString = newString + char;
+        index = index + 1;
+    }
+}
+
+console.log(newString);

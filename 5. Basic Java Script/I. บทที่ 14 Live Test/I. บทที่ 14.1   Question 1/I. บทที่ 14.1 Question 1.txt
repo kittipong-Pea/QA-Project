@@ -1,0 +1,19 @@
+I. บทที่ 14.1 Question 1
+
+Question 1 โจทย์: จงเขียน function ที่ return ตัวอักษรตัวสุดท้าย
+Example:
+findLastChar("westride") => return e
+findLastChar("zoo") => return o
+findLastChar("student") => return t
+findLastChar("ox") => return x
+
+
+function findLastChar(str) {
+    let len = str.length // ความยาว/จำนวน
+    let indexOfLastChar = len - 1 // index ที่ตัวสุดท้ายอยู่
+    let result = str[indexOfLastChar]
+    return result
+}
+
+let ans = findLastChar("westride")
+console.log(ans);

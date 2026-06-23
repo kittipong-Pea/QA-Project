@@ -1,0 +1,10 @@
+I. บทที่ 1.4  NaN
+
+การ comment ข้อความด้วยการ //
+
+NaN = Not a Number
+
+0/0
+5+nan
+
+typeof เอาไว้เช็ค status ที่เราเขียนได้

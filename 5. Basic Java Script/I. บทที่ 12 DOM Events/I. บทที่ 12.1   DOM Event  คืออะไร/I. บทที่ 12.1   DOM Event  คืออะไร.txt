@@ -1,0 +1,24 @@
+I. บทที่ 12.1   DOM Event  คืออะไร
+
+
+DOM Event  คืออะไร
+กรณีที่ user ตอบสนองยังไง เเล้วเกิดผลอะไร
+กดเเล้วเกิออะไร เลือนเเล้วเกิดอะไร เอาเม้าค้างเเล้วเกิดอะไร เป็นต้น
+
+A small Taste
+clicks
+drags
+drops
+hovers
+scrolls
+form submission
+key presses
+focus/blur
+
+mouse wheel
+double click
+copying
+pasting
+audio start
+screen resize
+printing

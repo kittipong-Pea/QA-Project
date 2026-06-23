@@ -1,0 +1,9 @@
+JavaScript String
+มาเริ่มต้นทำความรู้จักกับความสามารถของ String ใน JS รวมถึงเทคนิคและวิธีการคิดต่าง ๆ 
+เพื่อมาใช้แก้ปัญหาที่ซับซ้อนมากขึ้น
+ในโมดูลนี้ คุณจะได้เรียนรู้เกี่ยวกับ:
+String
+String Length
+String Properties and Methods
+String Template Literals
+Math Object
