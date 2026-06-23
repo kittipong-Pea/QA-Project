@@ -1,0 +1,46 @@
+
+ไปดู config ก่อนเริ่มทำ
+
+https://docs.cypress.io/app/references/configuration
+
+EX
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  allowCypressEnv: false,
+  viewportHeight : 1080 ,
+  viewportWidth : 1920 ,
+
+  e2e: {  
+    // baseUrl: "http://localhost:4200/",
+    baseUrl:"http://conduit.bondaracademy.com",
+
+    specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
+    setupNodeEvents(on, config) {
+      // implement node event listeners here
+    },
+    retries :{
+      runMode : 2,
+      openMode : 2
+    },
+     projectId: "unu2wb",
+  },
+});
+
+**********************************************************************************
+Test Retries ใน Cypress คือ ฟีเจอร์ที่ช่วยให้ระบบสามารถ รันการทดสอบ (Test case) 
+ที่ล้มเหลวซ้ำอีกครั้งโดยอัตโนมัติ ก่อนที่จะสรุปว่า Test นั้น "พังจริงๆ" (Failed)
+
+call อีกรอบเพื่อให้เช็คว่ามันพังจริงๆนะ เเล้วลอง run อีกกี่ครั้ง กำหนดครั้งได้ 
+เพราะเราไม่รู้ว่าที่ fail เกิดจาก ระบบ network server หรือ อื่นๆ
+EX
+ไปเขียนใน config 
+retries: {
+      runMode: 2,   // จำนวนครั้งที่จะรันใหม่เมื่อรันผ่าน Terminal (cypress run) เช่น บน CI/CD
+      openMode: 3 	// จำนวนครั้งที่จะรันใหม่เมื่อเปิดผ่านหน้าจอ Cypress App (cypress open)
+
+    }
+รอบที่ทำคือ จำนวนครั้ง บวกตัวมันเอง  EX openMode ทำ 1+3 ครั้ง 
+ทำเยอะไปก็ไม่ดี ในกรณีที่ server กำลัง recovery อยู่เเล้วเราไป เทส เท่ากับมันยิง api โดยตรง ไปรัวๆได้
+
+************************************************************************

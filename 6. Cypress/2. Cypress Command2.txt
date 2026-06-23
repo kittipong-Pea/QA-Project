@@ -1,0 +1,38 @@
+Cypress Command 2
+
+First Page Object
+การจัดการ code  ให้เป็นระเบียบ อ่านง่าย ตามหลัก  engineering ลดความศ้ำซ้อน
+EX การทำ export
+export class formLayoutPage{
+สร้าง methord ที่ต้งการ
+
+}
+
+export const onformLayoutPage = newformLayoutPage()
+
+**********************************************************************************
+Custom commands
+
+Custom คำสั่ง ที่อยากให้เป็น หรือสร้างคำสั่งขึ้นมาใหม่ได้
+
+Cypress.commands.add()		เพิ่มคำสั่งตามที่ต้องการ
+Cypress.Command.overwrite()  	เอาของที่มีอยู่เเล้วมาต่อยอด ไม่นิยมใช้เท่าไหร่
+
+ไปสร้างใน command.js ที่เค้าสร้างมาได้เลย
+EX Cypress.commands.add()
+Cypress.Commands.add('goToHomePage', () => {
+  cy.visit('/')  หรือใส่ url ไปก็ได้
+})
+
+EX Cypress.Command.overwrite() 
+
+Cypress.Commands.overwrite('type', (originalFn, element, text, options) => {
+  text = text.toLocaleUpperCase()
+  return originalFn(element, text, options)
+})
+
+**********************************************************************************
+
+
+
+https://docs.cypress.io/app/references/assertions#__docusaurus_skipToContent_fallback

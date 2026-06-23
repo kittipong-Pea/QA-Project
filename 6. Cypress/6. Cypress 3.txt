@@ -1,0 +1,50 @@
+Shadow DOM
+
+DOM ที่เเฝงอยู่ ใน DOM ตัวอื่น
+
+Shadow host: โหนด DOM ปกติ (Regular DOM) ที่ตัว Shadow DOM ไปเกาะอยู่
+Shadow tree: ต้นไม้ DOM ย่อยที่ถูกซ่อนอยู่ภายใน Shadow DOM
+Shadow boundary: ขอบเขตที่คอยคั่นกลางระหว่าง DOM ปกติภายนอก กับ Shadow DOM ภายใน
+Shadow root: โหนดรากฐาน (Root node) เริ่มต้นของตัว Shadow tree
+
+
+เราจะดึง ข้อมูลใน Shadow DOM โดยตรงไม่ได้ ต้อง เข้าถึง Shadow host ก่อนเเล้วค่อยไปหา Shadow root
+ 
+  it('access shadow DOM', () => {
+        cy.visit('https://radogado.github.io/shadow-dom-demo/')
+        cy.get('#app').shadow().find('#container')
+    })
+})
+
+******************************************************************************
+Cypress Dashboard
+เป็น tools ชนิดหนึ่งที่เราไว้ run test
+เป็ว วิชัว ที่เอาไว้ให้คนอื่นดูได้
+
+ขั้นตอนที่1 เข้า web cypress เเล้วทำการ login 
+ขั้นตอนที่2 ไปที่ project เเล้วทำการ new project
+ขั้นตอนที่3 พอสร้างเเล้วก็อป code ไปวางที่ config เเล้ว Next
+ขั้นตอนที่4 ไปเอา code ตรง try it first มาใส่ใน package.json 
+ขั้นตอนที่5 ถ้ากด next ไม่ได้ ไม่เป็นไร เสร็จขั้นตอนเเล้ว
+
+
+ลองไปเล่นดูมีหลากหลาย ไว้ให้ดู
+
+https://www.cypress.io/#create
+
+******************************************************************************
+Visual testing
+การ test ที่อยู่หน้าจอ ui รูปเเบบสี เปลี่ยนไปไหม
+ตรวจสอบด้วยสายตา 
+
+https://docs.cypress.io/app/plugins/plugins-list#__docusaurus_skipToContent_fallback
+
+ไปก็อป เเล้วไป install ใน vs
+อ่านใน DOC ด้วย ว่าเค้าอยากให้ทำอะไรตั้งค่าอะไร
+
+******************************************************************************
+
+
+
+
+

@@ -1,0 +1,41 @@
+{
+  "articles": [
+    {
+      "slug": "westride-QA-learning-4-464390",
+      "title": "Test QA 001",
+      "description": "westride QA learning automate",
+      "body": " vdjnvdnjvndv ",
+      "tagList": [],
+      "createdAt": "2023-12-18T08:57:57.856Z",
+      "updatedAt": "2023-12-18T08:57:57.856Z",
+      "favorited": false,
+      "favoritesCount": 0,
+      "author": {
+        "username": "westride1",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    },
+    {
+      "slug": "westride-QA-learning-3-464390",
+      "title": "test response 2",
+      "description": "westride QA learning automate",
+      "body": " vdjnvdnjvndv ",
+      "tagList": [],
+      "createdAt": "2023-12-18T08:56:27.071Z",
+      "updatedAt": "2023-12-18T08:56:27.071Z",
+      "favorited": false,
+      "favoritesCount": 0,
+      "author": {
+        "username": "westride1",
+        "bio": null,
+        "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+        "following": false
+      }
+    }
+  ],
+  
+  "articlesCount": 2
+
+}

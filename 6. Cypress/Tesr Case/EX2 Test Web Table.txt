@@ -1,0 +1,50 @@
+Web Tables
+
+EX เเก้ไข ข้อมูล เป็ตารางๆ
+    it('Web Tables', () => {
+        cy.visit('/')
+        cy.contains('Tables & Data').click()
+        cy.contains('Smart Table').click()
+
+        //1 get row by text
+        cy.get('tbody').contains('tr','Larry').then(row => {
+            cy.wrap(row).find('[class="nb-edit"]').click()
+            cy.wrap(row).find('[placeholder="Age"]').clear().type('35')
+            cy.wrap(row).find('[class="nb-checkmark"]').click()
+            cy.wrap(row).find('td').eq(6).should('contain','35')
+        })
+
+        //2 get row by index
+        cy.get('thead').find('[class="nb-plus"]').click()
+        cy.get('thead').find('tr').eq(2).then(row => {
+            cy.wrap(row).find('[placeholder="First Name"]').type('Wesdtride')
+            cy.wrap(row).find('[placeholder="Last Name"]').type('QA')
+            cy.wrap(row).find('[placeholder="Age"]').clear().type('35')
+            cy.wrap(row).find('[class="nb-checkmark"]').click()
+        })
+
+        cy.get('tbody tr').first().find('td').then(column => {
+            cy.wrap(column).eq(2).should('contain', 'Wesdtride')
+            cy.wrap(column).eq(3).should('contain', 'QA')
+            cy.wrap(column).eq(6).should('contain', '35')
+        })
+    })
+
+})
+
+
+EX2 Filter เช็คการหา
+//3 Filter / Search capability
+    const age = [20, 30, 40, 200]
+
+    cy.wrap(age).each( age => {
+        cy.get('thead').find('[placeholder="Age"]').clear().type(age)
+        cy.wait(500)
+        cy.get('tbody tr').each( row => {
+            if(age == 200){
+                cy.wrap(row).should('contain', 'No data found')
+            } else {
+                cy.wrap(row).find('td').eq(6).should('contain', age)
+            }
+        })
+    })

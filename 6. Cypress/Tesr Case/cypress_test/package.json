@@ -1,0 +1,19 @@
+{
+  "name": "cypress_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:run:chrome":  "npx cypress run --browser chrome",
+    "cypress:run:firefox": "npx cypress run --browser firefox",
+    "cypress:open:chrome": "npx cypress open --browser chrome",
+    "cypress:report": "npx cypress run --spec cypress/e2e/testArticalWebsite.cy.js --record --key d682e152-6c91-4a8a-af6e-4ad2abf87014"
+    
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^15.15.0"
+  },
+  "description": ""
+}

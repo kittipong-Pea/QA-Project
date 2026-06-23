@@ -1,0 +1,63 @@
+EX e2e  import ข้อมูล class มาใส่ เพื่อใช้งาน
+beforeEach() ทุกๆการ run it จะทำงานตัวนี้ก่อน  (ทำbeforeEach ก่อน run terst case)
+
+import { onNavigationPage } from "../support/PageObject/navigation"
+
+describe("Test with page object", () => {
+
+    beforeEach("open application", () => {
+        cy.visit('/')
+    })
+
+    it("verify navigationPage", () => {
+        onNavigationPage.formLayoutPage()
+        onNavigationPage.datepickerPage()
+        onNavigationPage.toastrPage()
+        onNavigationPage.smartTablePage()
+        onNavigationPage.tooltipsPage()
+    })
+
+})
+
+EX support สร้าง class มาเพื่อเช็คเเล้วกลับไป กด feature  ตามที่ต้องการ
+
+export class navigationPage {
+
+    formLayoutPage() {
+        selectGroupMenu('Forms')
+        cy.contains('Form Layouts').click()
+    }
+
+    datepickerPage() {
+        selectGroupMenu('Forms')
+        cy.contains('Datepicker').click()
+    }
+
+    toastrPage() {
+        selectGroupMenu('Modal & Overlays')
+        cy.contains('Toastr').click()
+    }
+    
+    smartTablePage() {
+        selectGroupMenu('Tables & Data')
+        cy.contains('Smart Table').click()
+    }
+
+    tooltipsPage() {
+        selectGroupMenu('Modal & Overlays')
+        cy.contains('Tooltip').click()
+    }
+}
+
+function selectGroupMenu(groupName) {
+    cy.contains('a', groupName).then(menu => {
+        cy.wrap(menu).find('.expand-state g g').invoke('attr', 'data-name').then(attr => {
+            if (attr.includes('left')) {
+                cy.wrap(menu).click()
+            }
+        })
+    })
+}
+
+export const onNavigationPage = new navigationPage()
+

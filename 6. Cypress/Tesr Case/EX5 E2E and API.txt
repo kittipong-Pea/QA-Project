@@ -1,0 +1,57 @@
+Environment variables
+
+Environment Variables (ตัวแปรสภาพแวดล้อม) ใน Cypress
+OS ต่างๆ mac window linux
+
+Environment Variables เป็นฟีเจอร์ที่มีประโยชน์มากเมื่อคุณต้องการเก็บค่าที่เปลี่ยนแปลงได้ง่าย 
+เช่น เปลี่ยนไปตามเครื่องของนักพัฒนาแต่ละคน, เปลี่ยนตามสภาพแวดล้อมของระบบ (เช่น dev, staging, qa, prod) หรือค่าที่มีการอัปเดตบ่อย ๆ
+
+https://docs.cypress.io/app/guides/environment-variables#Set-environment-variables
+
+EX เเบบที่1
+ไปเพิ่มใน config ต่อจาก e2e ได้
+
+env: {
+  email: "",
+  password: ""
+}
+
+เเล้วก็เรียกใช้
+
+const bodyLogin = {
+  "user": {
+    "email": Cypress.env('email'),
+    "password": Cypress.env('password')
+  }
+}
+
+EX เเบบที่2 นิยมเเยก ไฟล์ออกมาดีกว่า
+สร้างไฟล์เเยกออกมาเลย Cypress.env.json 
+
+env: {
+  email: "",
+  password: ""
+}
+
+************************************************************************
+EX เเบบที่3 การ Export ใน commandline เขียนทับเข้าไป
+
+export _HOST=laura.dev.local
+export cypress_api_server=http://localhost:8888/api/v1/
+
+เอาไปวางใน terminal เเล้ว Run เลย
+
+เเล้วก็ลองไปเลือนดูใน setting ของ CYPRESS
+
+EX เเบบที่4 --env เซ็ตหรือเขียนทับเข้าไปได้เลย
+
+ไปสร้างใน package.json ใช้ในกรณีอยากใช้ User อื่น เทสเป็นต้น
+
+"cypress:open:developer": "npx cypress open --env email=developer@gmail.com password=12345",
+
+"cypress:open:qa": "npx cypress open --env email=qa@gmail.com password=6789"
+
+npm run cypress:open:developer
+
+
+

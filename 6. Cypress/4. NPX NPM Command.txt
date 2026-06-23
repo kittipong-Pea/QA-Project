@@ -1,0 +1,57 @@
+NPX And NPM Basic Command
+
+- NPX Cypress Open จะเปิดเหมือนเปิด โปรเเกรมขึ้นมา
+
+ถ้าเรารีบเราสามารถ ใช้คำสั่ง
+- NPX Cypress run จะ Runทั้งหมดเลยใน e2e ถ้า fail อะไรมันจะ เซฟ screen shot มาให้ดูเป็น ไฟล์
+run เฉพาะไฟล์
+- npx cypress run --spec "cypress/e2e/firstTest.cy.js"
+เเน่เนื่องยากมันยุ่งยากเเละยาวเกินจึงสามารถ
+ไปเพิ่ม script ที่ node_modules/package.json เพื่อเพิ่ม Script จาก npm 
+
+EX
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run"
+  },
+เวลา Run ใน Terminal ใช่คำสั่ง npm นะ
+npm run cypress:open
+npm run cypress:run
+
+ถ้าอยากให้เพิ่มเป็นวิดีโอต้องไปเเก้ที่ config เพิ่ม
+- video: ture ไปใน module
+
+*******************************************************************************
+Cross Browser Testing
+
+ต้องทำงานได้ทุกๆ Browser
+ถ้าจะ test browser อื่น ต้องไปลงมาก่อน
+
+cypess run --browser ...
+EX
+cypess run --browser firefox
+cypess run --browser chrome
+
+ไปเขียนทำเป็น npm script
+EX
+"scripts": {
+  "cypress:run:chrome": "npx cypress run --browser chrome",
+  "cypress:run:firefox": "npx cypress run --browser firefox",
+  "cypress:open:chrome": "npx cypress open --browser chrome"
+}
+
+เวลา run จะ run เป็น terminal โดย npm
+EX
+npm run cypress:run:chrome
+npm run cypress:open:chrome
+
+*******************************************************
+! คือไม่เอา ใส่ด้านหน้าได้  EX "!chrome"
+
+สามารถเขียนให้ run เฉพาะ test case ได้
+EX
+it("verify navigationPage",{browser : "chrome"}, () => {}
+
+ถ้า Run ผ่านตัวอื่นมันจะ Skip ไปเลย
+

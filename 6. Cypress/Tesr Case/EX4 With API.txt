@@ -1,0 +1,21 @@
+APP
+http://conduit.bondaracademy.com
+API
+ใหม่: https://conduit-api.bondaracademy.com/
+
+
+EX ยิงโดยตรงโดยไม่เข้าหน้า visit
+
+it.only('call API with cypress', () => {
+    const bodyLogin = {
+        "user": {
+            "email": "westride@gmail.com",
+            "password": "12345"
+        }
+    }
+
+    cy.request('POST', 'https://api.realworld.io/api/users/login', bodyLogin).then(response => {
+        const token = response.body.user.token
+        cy.log(token)
+    })
+})

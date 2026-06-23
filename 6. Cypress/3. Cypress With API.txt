@@ -1,0 +1,82 @@
+Cypress With API
+
+Verification of the browser API Calls
+
+Article ในที่นี้หมายถึง ข้อมูลหรือเนื้อหาประเภท "บทความ" บนหน้าเว็บไซต์
+ไปเช็ค API ที่เข้าถึงมา ลองไปดูที่ Network ไปที่ XHR
+โดยใช้คำสั่ง 
+Cy.intercept('Request Method','Request URL') เอาไว้ตรวจจับว่ามีการ call API ไปเส้นนี้ไหมไปดูใน network
+.as คือการตั้งชื่อเล่น
+EX
+cy.intercept('POST', 'https://api.realworld.io/api/articles/').as('postArticle')
+expect ใน Cypress คือ "คำสั่งที่ใช้ในการตรวจสอบผลลัพธ์"
+.to.equal หมายถึง ต้องเท่ากับ
+
+EX ทำการ Automade เเล้ว เช็คว่า call API เเล้ว Status success ไหม ข้อมูลตรงกันไหม
+
+ it('verify response',()=>{
+       cy.intercept('POST', 'https://conduit-api.bondaracademy.com/api/articles/').as('postArticle')
+
+       let title = 'Test QA 001'
+        cy.contains('New Article').click()
+        cy.get('[formcontrolname="title"]').type('Test QA 001')
+        cy.get('[formcontrolname="description"]').type('kittipong QA')
+        cy.get('[formcontrolname="body"]').type('Try to test')
+
+        cy.contains('Publish Article').click()
+
+        cy.wait('@postArticle')
+
+        cy.get('@postArticle').then(xhr =>{
+            console.log(xhr);
+        expect(xhr.response.statusCode).to.equal(201)
+        expect(xhr.response.body.article.title).to.equal(title)
+        
+        })
+
+********************************************************************************
+cy.intercept() เป็นคำสั่งใน Cypress ที่ใช้สำหรับ ดักจับ (Spy) และ จำลองข้อมูล (Stub) 
+ของ Network Requests (เช่น API calls แบบ HTTP XHR/Fetch) ที่เกิดขึ้นจากฝั่ง Front-end 
+ของแอปพลิเคชันที่คุณกำลังทดสอบ
+
+** หมายถึงอะไรก็เเล้วเเต่
+ 
+routeMatcher  พวก request url เป็นต้น ไปดูใน DOC
+
+EX
+it.only('verify tags response with routeMatcher', () => {
+    cy.intercept({method: 'GET', path: 'tags'}, { fixture: 'tags.json' })
+    cy.get('.tag-list').should('contain', 'cypress')
+        .and('contain', 'automate')
+        .and('contain', 'test')
+})
+
+********************************************************************************
+API Call using cypress
+
+Call API โดยตรง โดยไม่ผ่าน Browser 
+ไปดู Response ใน network ดู token ตอน login 
+token หมายถึง การยืนยันตัวตน ต้องมี  
+
+cy.request()
+
+ทำตาม วิดีโอไม่ได้เพรา ไม่สามารถเข้าถึง API บางส่วนได้
+
+EX ยิงโดยตรงโดยไม่เข้าหน้า visit
+
+it.only('call API with cypress', () => {
+    const bodyLogin = {
+        "user": {
+            "email": "westride@gmail.com",
+            "password": "12345"
+        }
+    }
+
+    cy.request('POST', 'https://api.realworld.io/api/users/login', bodyLogin).then(response => {
+        const token = response.body.user.token
+        cy.log(token)
+    })
+})
+
+********************************************************************************
+
