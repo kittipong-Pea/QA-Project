@@ -1,7 +1,29 @@
 
 ไปดู config ก่อนเริ่มทำ
 
+Cypress Configuration
+
 https://docs.cypress.io/app/references/configuration
+
+เครื่องหมายที่ใช้
+** หมายถึง อะไรก็เเล้วเเต่
+/    หมายถึง parth
+,  หมายถึง เเละ
+
+ไปเเก้ใน cypress.config.js  เขียนหลัง e2e
+
+baseUrl			Url หลักที่ทำการเเสดง
+EX.			baseUrl: "http://local:8080"
+
+excludeSpecPattern 	ไม่อยากเเสดงให้เห็น
+EX.			excludeSpecPattern: ['**/.......']
+
+specPattern		ทำการ Test file ที่มันมี .ต่างๆ ตามที่สั่งไว้
+EX.			specPatterncypress "/e2e/**/*.cy.{js,jsx,ts,tsx}" จับได้ตามสามสุกนี้
+
+มีให้ตั้งค่าเล่น อีกมากมายลองไปอ่านใน doc เอา
+https://docs.cypress.io/app/references/configuration#__docusaurus_skipToContent_fallback
+
 
 EX
 const { defineConfig } = require("cypress");
