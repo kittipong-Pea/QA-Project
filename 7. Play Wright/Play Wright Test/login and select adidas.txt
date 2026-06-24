@@ -1,0 +1,25 @@
+ตั้งเเต่ login ยัง add สินค้า
+
+const { test, expect } = require("@playwright/test");
+const exp = require("constants");
+
+test('login and select adidas', async ({page}) => {
+    //Login
+    await page.goto("https://rahulshettyacademy.com/client/")
+    await page.locator("#userEmail").fill("hiwale6804@alibrs.com")
+    await page.locator("#userPassword").fill("P@ssw0rd")
+    await page.locator("#login").click()
+
+    //Product page
+    await page.waitForSelector("div.card-body")
+    const products = await page.locator("div.card-body")
+    console.log(products)
+    for(let i = 0; i < await products.count(); i++){
+        if(await products.nth(i).locator("b").textContent() === "ADIDAS ORIGINAL"){
+            await products.nth(i).locator("text= Add To Cart").click()
+            break;
+        }
+    }
+    page.locator("div.card-body", { has: page.locator("b:has-text('IPHONE 13 PRO')")}).locator("text= Add To Cart").click()
+    await page.waitForTimeout(5000)
+})

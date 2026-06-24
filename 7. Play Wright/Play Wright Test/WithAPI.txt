@@ -1,0 +1,116 @@
+
+let token = "";
+import APIUtils from "../Utils/APIUntils";
+
+test.beforeAll(async () => {
+    const apiContext = await request.newContext()
+    const response = await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", { data: loginData })
+    expect(response.ok()).toBeTruthy()
+
+    const responseJason = await response.json()
+    token = responseJason.token
+
+})
+
+test('login and select adidas', async ({ page }) => {
+    const email = "hiwale6804@alibrs.com"
+
+    await page.addInitScript(value =>{
+        window.localStorage.setItem("token", value)
+    },token)
+
+    //Login
+    await page.goto("https://rahulshettyacademy.com/client/")
+    await page.locator("#userEmail").fill(email)
+    await page.locator("#userPassword").fill("P@ssw0rd")
+    await page.locator("#login").click()
+})
+
+ //responseCreateOrder
+    const responseCreateOrder = await apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order", {
+        data: createOrderData,
+        headers: {
+            'Authorization': token,
+            "Content-Type": "application/json",
+        },
+    });
+    const responseCreateOrderJson = await responseCreateOrder.json();
+    orderId = responseCreateOrderJson.orders[0];
+export default class APIUtils {
+    constructor(apiContext) {
+        this.apiContext = apiContext;
+    }
+
+    async getToken(loginData) {
+        const responseLogin = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", { 
+            data: loginData 
+        });
+        const responseLoginJson = await responseLogin.json();
+        return responseLoginJson.token;
+    }
+
+    async createOrder(createOrderData, loginData) {
+        const response = {};
+        response.token = await this.getToken(loginData);
+
+        const responseCreateOrder = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order", {
+            data: createOrderData,
+            headers: {
+                "Authorization": response.token,
+                "Content-Type": "application/json",
+            },
+        });
+
+        const responseCreateOrderJson = await responseCreateOrder.json();
+        response.orderIdFromAPI = responseCreateOrderJson.orders[0];
+        
+        return response;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************
+สร้าง floder ฟั่งชั่น
+
+export default class APIUtils {
+    constructor(apiContext){
+        this.apiContext = apiContext
+    }
+
+    async getToken(loginData){
+        const responseLogin = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login", {data: loginData})
+        const responseLoginJson = await responseLogin.json()
+        return responseLoginJson.token;
+    }
+
+    async createOrder(createOrderData){
+        const responseCreateOrder = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order", {
+            data: createOrderData,
+            headers: {
+                Authorization: this.getToken(),
+                "Content-Type": "application/json",
+            },
+        });
+        const responseCreateOrderJson = await responseCreateOrder.json()
+        orderIdFromAPI = responseCreateOrderJson.orders[0];
+        return orderIDFormAPI; 
+    }
+}
+
+
+ทำการ import เข้า test หลัก
+
+import APIUtils from "../Utils/APIUntils";

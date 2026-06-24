@@ -1,0 +1,123 @@
+Play wright E2E
+
+https://rahulshettyacademy.com/client/#/auth/login
+
+ตั้งเเต่ login ยัง add สินค้า
+
+const { test, expect } = require("@playwright/test");
+const exp = require("constants");
+
+test('login and select adidas', async ({page}) => {
+    //Login
+    await page.goto("https://rahulshettyacademy.com/client/")
+    await page.locator("#userEmail").fill("hiwale6804@alibrs.com")
+    await page.locator("#userPassword").fill("P@ssw0rd")
+    await page.locator("#login").click()
+
+    //Product page
+    await page.waitForSelector("div.card-body")
+    const products = await page.locator("div.card-body")
+    console.log(products)
+    for(let i = 0; i < await products.count(); i++){
+        if(await products.nth(i).locator("b").textContent() === "ADIDAS ORIGINAL"){
+            await products.nth(i).locator("text= Add To Cart").click()
+            break;
+        }
+    }
+    page.locator("div.card-body", { has: page.locator("b:has-text('IPHONE 13 PRO')")}).locator("text= Add To Cart").click()
+    await page.waitForTimeout(5000)
+})
+
+********************************************************************************
+
+1. การเลือก CSS Selector ด้วย Text Value
+แนะนำการทบทวนวิธีสร้าง CSS Selector ที่ควบคู่ไปกับการเช็กค่าข้อความ โดยใช้คำสั่ง :has-text()
+ข้อควรระวัง: เวลาตรวจสอบว่าสินค้าถูกเพิ่มเข้าตะกร้าสินค้า (Cart) ถูกต้องหรือไม่ ควรใช้แท็ก HTML ควบคู่กับ Text เสมอ (เช่น button:has-text("Add")) หลีกเลี่ยงการใช้ Text โดด ๆ เพียงอย่างเดียวเพื่อป้องกันการหา Element ผิดพลาด
+2. การใช้งาน Assertion (การตรวจสอบผลลัพธ์)
+บทเรียนเน้นย้ำว่า "ไม่ใช่ทุก Assertion ที่มีความสามารถในการรออัตโนมัติ (Auto-retrying)"
+แบบที่ไม่มี Auto-retrying: เช่น expect(value).toBeFalsy() จะเป็นการเช็กค่า ณ วินาทีนั้นทันที ถ้าข้อมูลบนเว็บยังโหลดไม่เสร็จ เทสจะพังทันที
+แบบที่มี Auto-retrying: เช่น expect(locator).toBeVisible() Playwright จะรอให้ Element แสดงขึ้นมาบนจอก่อนในช่วงเวลาหนึ่ง (Timeout) ทำให้เทสมีความเสถียรมากกว่า
+
+
+https://playwright.dev/docs/next/other-locators#css-matching-by-text
+
+
+EX เอาไปต่อกับบทก่อน
+
+ //Assertion
+    await page.locator("div.card-body", { has: page.locator("b:has-text('IPHONE 13 PRO')")}).locator("text= Add To Cart").click
+    //click cart -> change page completely yet?
+    await page.locator("button[routerlink='/dashboard/cart']").click()
+    //ใส่ waitForSelector เพื่อให้ โหลดเสร็จก่อน เเล้วเจอ ADIDAS ORIGINAL
+    await page.waitForSelector("h3:has-text('ADIDAS ORIGINAL')")
+
+    //check if adidas is visible
+     // เเบบที่1
+    // await expect(page.locator("h3:has-text('ADIDAS ORIGINAL')")).toBeVisible()
+     // เเบบที่2
+    expect(await page.locator("h3:has-text('ADIDAS ORIGINAL')").isVisible()).toBeTruthy()
+
+    //chech if iPhone is visible
+    // เเบบที่1
+    // await expect(page.locator("h3:has-text('IPHONE 13 PRO')")).toBeVisible()
+    // เเบบที่2
+    expect(await page.locator("h3:has-text('IPHONE 13 PRO')").isVisible()).toBeTruthy()
+    // อาจจะ error ได้เพราะ การโหลดช้า ทำให้ มองไม่เจอ ข้อมูลที่อ้างอิง
+    //ไปใส่ auto wait หน้า page ให้ run เสร็จก่อน ชัวกว่า บรรทัด ก่อนได้เลย
+
+********************************************************************************
+Handling Auto suggestive dropdown options with playwright - Example
+
+1. Explore checkout page after the cart page
+เรียนรู้โครงสร้างของหน้า Checkout หลังจากที่กดผ่านมาจากหน้าตะกร้าสินค้า (Cart) เพื่อทำความเข้าใจว่าระบบต้องการข้อมูลอะไรบ้างในการจบออเดอร์
+2. Explore a dropdown suggestion element
+ทำความเข้าใจพฤติกรรมของ Element ประเภท Auto Suggestive Dropdown (เช่น ช่องเลือกประเทศ) ที่จะแสดงรายชื่อตัวเลือกขึ้นมาแบบไดนามิกเมื่อผู้ใช้พิมพ์ตัวอักษรลงไป
+3. How to type with a delay?
+วิธีการเขียนโค้ดให้ Playwright จำลองการพิมพ์ตัวอักษรแบบเว้นจังหวะ (Delay) เสมือนมนุษย์พิมพ์จริงๆ เพื่อให้ระบบหลังบ้านมีเวลาค้นหาและแสดงผลรายการแนะนำขึ้นมาได้ทัน
+JavaScript
+.pressSequentially("text", {delay: xxx})
+4. How to select from the dropdown suggestion?
+สอนเทคนิคการเขียนโค้ดเพื่อเลือกคำตอบที่ถูกต้องจากรายการแนะนำที่เด้งขึ้นมา โดยแบ่งออกเป็น 2 วิธีหลักๆ:
+- with a loop: การใช้คำสั่งวนลูปเพื่อไล่เช็กสมาชิกทีละตัวจนกว่าจะเจอคำที่ต้องการแล้วค่อยสั่งคลิก
+- with a :has-text(): การใช้ Pseudo-class ของ Playwright เพื่อเจาะจงเลือก Element ที่มีข้อความที่เราต้องการโดยตรง ซึ่งช่วยให้โค้ดสั้นและกระชับขึ้น
+
+EX
+  //Checkout
+    //type with delay on the text field country -> "in"
+    await page.locator("input[placeholder='Select Country']").pressSequentially("si", { delay: 300 })
+    await expect(page.locator("section.ta-results")).toBeVisible()
+    //select target country from the dropdown list -> "Singapore"
+    //เเบบที่1
+    const dropdownOptions = await page.locator("section.ta-results").locator("button")
+    for (let i = 0; i < await dropdownOptions.count(); i++) {
+        if (await dropdownOptions.nth(i).textContent() === " Singapore") {
+            await dropdownOptions.nth(i).click()
+            break;
+        }
+    }
+    //เเบบที่2  
+    // await page.locator("section.ta-results").locator("button:has-text(' Singapore')").click()
+    //อันนี้ตรวจสอบ
+    await expect(page.locator("input[placeholder='Select Country']")).toHaveValue("Singapore")
+
+********************************************************************************
+Complete E2E flow of Placing the order and grab the OrderID with Playwright
+
+EX
+const email = "***************"
+
+ await expect(page.locator("div.user__name label")).toHaveText(email) //ใช้บ่อยเลยตั้ง const
+
+    await page.locator("input.txt").nth(1).fill("123")
+    await page.locator("input.txt").nth(2).fill("tester")
+    await page.locator(".user_address").waitFor({ state: "hidden" })//ไว้ว่อน drop down 
+    await page.locator("a.action__submit").click()
+
+    await page.waitForTimeout(5000)
+
+    //Success Landing page
+    await expect(page.locator("h1.hero-primary")).toBeVisible()
+    console.log(await page.locator("label.ng-star-inserted").textContent())
+
+********************************************************************************
+

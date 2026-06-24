@@ -1,0 +1,270 @@
+Play wright Command
+
+สร้างใน terminal ของ vs
+npm init playwright
+นามสกุล .spec.js
+
+EX
+require สิ่งที่เราต้องการ
+
+import { test, expect } from '@playwright/test';
+
+test('my first test',async ()=>{
+    await //case1
+    await //case2
+    
+})
+
+**********************************************************************************
+ใช้ async/await
+
+const เสือก
+.goto คือการไปถึง ตามด้วย url 
+
+**********************************************************************************
+importance of playwright configuration
+อาไว้ตั้งค่าเพิ่มเติมก่อน test
+
+ไปดูใน playwright configuration มันมีคำอธิบาย อยู่
+
+เวลาจะ run test ใช้คำสั่ง
+
+npx playwright test	  			//เเบบไม่มีอะไรเลย 
+npx playwright test --ui  			//ทำให้มี ui มา
+npx playwright test --headed 			//เเบบเฉพาะหัว browser
+npx playwright test basic_ui.spec.js --headed	//RUN เฉพาะไฟล์ + headed
+npx playwright test basic_ui.spec.js --headed --browser chromium 	//เลือก browser
+
+**********************************************************************************
+configuration
+
+https://playwright.dev/docs/test-configuration
+
+สามารถลบ config browser ที่เค้าสร้างให้มาเเล้ว สร้างของตัวเองตรง user ได้
+EX
+browserName:'chromium',
+เเต่ๆถ้าเราอยากใช้อันที่ไม่ config ก็เขียนเพิ่มใน terminal ได้
+
+npx playwright test basic_ui.spec.js --headed --browser chromium 
+
+time out ที่สำคัญต้องรู้
+Test timeout  	ตั้งค่าเวลาปกติ
+Expect timeout  	ระยะเวลาสูงสุด ที่โปรแกรมหรือระบบจะรอให้เงื่อนไขการตรวจสอบ
+action timeout	ระยะเวลาในการดำเนินการ
+
+EX
+timeout:60000,
+
+  expect:{
+    timeout:10000
+  },
+
+ actionTimeout:3000,
+
+การสร้าง test นั้นต้องมีการ ทำ
+Action (การกระทำ): คือสิ่งที่เรา "สั่งให้ระบบทำ" 
+Assertion (การตรวจสอบ): คือสิ่งที่เรา "ใช้ตรวจเพื่อยืนยันผลลัพธ์" ว่ามันถูกต้องไหม
+สามารถเลือกได้หลายเเบบ ดึงจาก DOM ก็ได้
+
+EX
+expect(success).toBeTruthy();
+
+**********************************************************************************
+Locators supported by playwright
+
+.fill มันคือ type ของ cypress หรือก็คือการพิมพ์
+.locator การเข้าถึง Selectors ได้
+
+EX
+test.only('sauceDemo', async ({page}) => {
+    await page.goto("https://www.saucedemo.com/v1/index.html")
+    await page.locator("input#user-name").fill("werewdf")	
+//ไปดึง Selectors  จาก input ID user-name
+});
+
+อันเดียวกัน
+// test การเข้าถึง  web หา scleter เเล้ว พิมพ์ username and password เเล้วกด login
+// test.only('sauceDemo', async ({page}) => {
+//     await page.goto("https://www.saucedemo.com/v1/index.html")
+//     await page.locator("input#user-name").fill("username")
+//     await page.locator("[data-test='password']").fill("password")
+//     await page.locator("#login-button").click()
+// });
+
+**********************************************************************************
+Action (การกระทำ): คือสิ่งที่เรา "สั่งให้ระบบทำ" 
+Assertion (การตรวจสอบ): คือสิ่งที่เรา "ใช้ตรวจเพื่อยืนยันผลลัพธ์" ว่ามันถูกต้องไหม
+
+.alltextcontents()	เอาไว้ดึงข้อความจาก element นั้นๆ
+
+https://playwright.dev/docs/test-assertions
+ไปดูว่าจะ  ตรวจ element เเบบไหน ขึ้นอยู่กับการใช้งาน
+
+EX
+test.only('should fail login', async ({page}) => {
+    await page.goto("https://www.saucedemo.com/v1/index.html")
+    await page.locator("input#user-name").fill("username")
+    await page.locator("[data-test='password']").fill("password")
+    await page.locator("#login-button").click()
+    console.log(await page.locator("[data-test='error']").allTextContents())
+    await expect(page.locator("[data-test='error']")).toContainText("Username and password do not match")				// เช็คเฉพาะข้อความ
+});
+
+**********************************************************************************
+How to work with locators which extract multiple webelements in page
+
+เมื่อเราเจอเคสที่ตัวเลือก (Selector) ไม่มีความซ้ำกัน หรือดึงข้อมูลออกมาแล้วเจอ Element หลายตัวพร้อมกัน (Matching multiple elements) เราสามารถใช้คำสั่งของ Playwright ในการจัดการได้ดังนี้:
+
+ดึงข้อความทั้งหมด (allTextContents): ใช้สำหรับดึงข้อความหรือ Text ออกมาจากทุก Element ที่แมตช์เจอพร้อมกัน
+-เลือก Element ตัวแรก (.first()): ใช้เจาะจงเลือก Element ตัวแรกสุดของกลุ่มนั้น
+-เลือก Element ตัวสุดท้าย (.last()): ใช้เจาะจงเลือก Element ตัวสุดท้ายของกลุ่มนั้น
+-เลือก Element ลำดับที่ระบุ (.nth(index)): ใช้สำหรับระบุตำแหน่งที่ต้องการโดยระบุเป็นตัวเลข (Index เริ่มนับจาก 0 เช่น .nth(0) คือตัวแรก, .nth(1) คือตัวที่สอง)
+
+EX
+test.only('should fail login with wrong credentials then relogin and pass', async ({ page }) => {
+    //Section Login fail
+    await page.goto("https://www.saucedemo.com/v1/index.html")
+    await page.locator("input#user-name").fill("username")
+    await page.locator("[data-test='password']").fill("password")
+    await page.locator("#login-button").click()
+    
+    console.log(await page.locator("[data-test='error']").allTextContents())
+    await expect(page.locator("[data-test='error']")).toContainText("Username and password do not match")
+
+    //Section Login pass
+    await page.locator("input#user-name").fill("")		//การทำกล่องข้อความว่าง
+    await page.locator("[data-test='password']").fill("")
+    await page.locator("input#user-name").fill("standard_user")
+    await page.locator("[data-test='password']").fill("secret_sauce")
+    await page.locator("#login-button").click()
+    await expect(page).toHaveURL("https://www.saucedemo.com/v1/inventory.html")
+        // เช็คว่าเข้ามาเเล้วตรงกับ url ไหม
+
+    //Inventory page
+    await page.locator(".inventory_item").first()click()       //ตัวเเรกของ.inventory_item
+    await page.locator(".inventory_item").last()click()	   //ตัวท้าย
+    await page.locator(".inventory_item").nth()click()	   //ตามลำดับนับเเบบ index นับจาก 0
+});
+
+**********************************************************************************
+Understanding how wait mechanism works if list of elements are returned
+
+1. .textContent()
+ใช้สำหรับดึงข้อความจาก Element เดี่ยว ๆ เพียงตัวเดียว * การทำงาน
+
+2. .allTextContents()
+ใช้สำหรับดึงข้อความจาก Element หลาย ๆ ตัวพร้อมกัน ที่ตรงกับ Selector นั้น ๆ
+
+การทำงาน: มันจะวิ่งไปหาทุก Element ที่เข้าข่าย แล้วดึงข้อความของแต่ละตัวแยกกัน จากนั้นจับมัดรวมกันใส่ไว้ในกล่องเดียว
+ผลลัพธ์ที่ได้: จะส่งกลับมาเป็น Array of Strings (รายการของข้อความ) เสมอ (ถ้าไม่เจอตัวไหนเลย จะได้เป็น Array ว่าง [])
+
+EX
+// test.only('should fail login with wrong credentials then relogin and pass', async ({page}) => {
+//     //Section Login fail
+//     await page.goto("https://www.saucedemo.com/v1/index.html")
+//     await page.locator("#somethingthatisnotreal").click({timeout: 5000})
+//     await page.locator("input#user-name").fill("username")
+//     await page.locator("[data-test='password']").fill("password")
+//     await page.locator("#login-button").click()
+//     console.log(await page.locator("[data-test='error']").allTextContents())
+//     await expect(page.locator("[data-test='error']")).toContainText("Username and password do not match")
+// });
+
+**********************************************************************************
+Handling static Select dropdown options with Playwright
+
+selectOption  ถ้าจะได้มันจะต้องเลือกได้เเค่ value  หรือ label 
+ใช้คำสั่ง  .selectOption('value or lable')
+
+// Single selection matching the value or label
+await page.getByLabel('Choose a color').selectOption('blue');
+// Single selection matching the label
+await page.getByLabel('Choose a color').selectOption({ label: 'Blue' });
+// Multiple selected items
+await page.getByLabel('Choose multiple colors').selectOption(['red', 'green', 'blue']);
+
+Checkboxes and radio buttons 
+ใช้คำสั่ง เดียวกัน
+
+// Check the checkbox
+await page.getByLabel('I agree to the terms above').check();
+// Assert the checked state
+expect(page.getByLabel('Subscribe to newsletter')).toBeChecked();
+// Select the radio button
+await page.getByLabel('XL').check();
+
+EX
+test('basic Ui',async ({page})=>{
+    await page.goto('https://webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html')
+    await page.locator('#dropdowm-menu-1').selectOption('python')
+    await page.locator("#checkboxes [value='option-1']").check();
+    await page.locator("#checkboxes [value='option-3']").uncheck();
+
+    await page.locator("#radio-buttons [value='blue']").check();
+})
+
+**********************************************************************************
+การทำ assertion 
+
+การตรวจสอบสถานะด้วย .toBeFalsy()
+การตรวจสอบคุณลักษณะของ Element ด้วย .toHaveAttribute()
+
+.isChecked() การทำงานเเบบเดียวกับ .toBeChecked()
+ expect().toBeFalsy() มันคือการตรงกันข้าม  เเต่มันจะไม่ออกมาเป็น promise ทำให้ ใช้ await ไม่ได้
+
+EX
+  expect(await page.locator("#checkboxes [value='option-1']").isChecked).toBeFalsy()
+
+.toHaveAttribute อาไว้สำหรับ ตรวจสอบคุณลักษณะ (Attribute) ของ Element บนหน้าเว็บ ครับว่ามีอยู่จริงไหม หรือมีค่าตรงตามที่เราคาดหวังไว้หรือเปล่า
+EX
+await expect(page.locator("nav[role='navigation']")).toHaveAttribute("class", "navbar navbar-inverse navbar-fixed-top");
+
+**********************************************************************************
+Handling Child windows & Tabs with Playwright by switching browser context
+
+1. Handling New Tabs (การจัดการแท็บใหม่)
+-  Recap Concept of Browser Context and Page: * Browser Context: เปรียบเสมือนเซสชันหรือหน้าต่างไม่ระบุตัวตน (Incognito) ที่แยกออกจากกันโดยสิ้นเชิง ทำให้ข้อมูล เช่น คุกกี้ หรือแคช ไม่ปะปนกัน
+Page: คือแท็บเดี่ยว ๆ ที่เปิดอยู่ภายใน Browser Context นั้น ๆ โดยในหนึ่ง Context สามารถมีได้หลาย Page
+
+-  Create a Test Case with browser Fixture Instead of page: * ในการทดสอบทั่วไปเรามักจะเรียกใช้ page โดยตรง แต่สำหรับการทดสอบที่ต้องมีการเปิดแท็บใหม่หรือหน้าต่างย่อย เราจำเป็นต้องดึง browser fixture มาใช้ เพื่อสร้างและควบคุม Browser Context ด้วยตัวเอง
+
+-  Wait for an Event of the New Tab Using .waitForEvent('page'): * เป็นคำสั่งที่ใช้ดักฟัง (Listen) และรอจนกว่าจะเกิดเหตุการณ์ (Event) ที่มีการเปิดหน้าเพจหรือแท็บใหม่ขึ้นมา
+
+2. Handling Cases That We Want Asynchronous Behavior (การจัดการกรณีที่ต้องการทำงานแบบไม่พร้อมกัน)
+-  Recap on the Concept of Promise: เนื่องจาก JavaScript ทำงานเป็นแบบ Asynchronous ตัวโครงสร้างของข้อมูลแบบ Promise จึงมี 3 สถานะหลักคือ:
+
+1. Fulfilled: สถานะที่ดำเนินการสำเร็จและได้ผลลัพธ์กลับมา
+2. Pending: สถานะที่กำลังรอคอยการดำเนินการ (ยังไม่รู้ผลว่าจะสำเร็จหรือล้มเหลว)
+3. Rejected: สถานะที่การดำเนินการเกิดข้อผิดพลาดหรือล้มเหลว
+
+-[newPage] = Promise.all(): * เนื่องจากเหตุการณ์ "การคลิกปุ่ม/ลิงก์" และ "การเปิดแท็บใหม่ขึ้นมา" มักจะเกิดขึ้นพร้อม ๆ กันในเวลาไล่เลี่ยกัน
+เราจึงต้องใช้ Promise.all() เพื่อมัดสัญญาทั้งสองอย่าง (คำสั่งคลิก และ คำสั่งรอเปิดแท็บ) ให้ทำงานควบคู่กันไป หากไม่ทำเช่นนี้ ตัว Playwright อาจจะคลิกไปก่อนโดยที่ยังไม่มีการตั้งคิวรอรับแท็บใหม่ ส่งผลให้สคริปต์หาหน้าเพจใหม่ไม่เจอและเกิดข้อผิดพลาด (Flaky Test) ได้
+
+EX ลองไปไล่กู
+
+import { test, expect } from '@playwright/test';
+
+test.only('New Tab', async ({ browser }) => {
+    const context = await browser.newContext()
+    const page = await context.newPage()
+
+    await page.goto('https://compendiumdev.co.uk/')
+
+    const [newPage] = await Promise.all([
+        context.waitForEvent('page'),
+        page.locator("a[href='https://eviltester.com']").click()
+    ])
+
+    await newPage.waitForLoadState()  // รอให้ tab ใหม่โหลดเสร็จ
+
+    await expect(page.url()).toBe("https://compendiumdev.co.uk/")
+    await expect(newPage.url()).toBe("https://www.eviltester.com/")
+})
+
+**********************************************************************************
+
+
+
+
+
+

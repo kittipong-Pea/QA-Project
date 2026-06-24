@@ -1,0 +1,58 @@
+Play Wright with API
+
+Understanding the importance of API integration calls for Web tests
+
+1. API Testing * ทำความเข้าใจเกี่ยวกับการทดสอบในระดับ API
+2. What happens on the backend when we login
+กระบวนการทำงานที่เกิดขึ้นฝั่งหลังบ้าน (Backend) เมื่อผู้ใช้กดปุ่ม Login
+3. Google Developer Tool; Network tab
+การใช้เครื่องมือสำหรับนักพัฒนาซอฟต์แวร์ (F12) โดยเน้นไปที่แท็บ Network เพื่อแกะดู:
+- Request: สิ่งที่หน้าเว็บส่งไปขอข้อมูล
+- Payload: ข้อมูลดิบหรือตัวแปรที่เราแนบส่งไป
+- Response: ผลลัพธ์ที่เซิร์ฟเวอร์ตอบกลับมา
+4. Local Storage & Cookie  รู้จักกับพื้นที่ที่เบราว์เซอร์ใช้จัดเก็บข้อมูลและ Token หลังจากสิทธิ์การ Login ผ่านแล้ว
+5. Try to visit the website again on a new Incognito tab
+การทดลองเข้าเว็บเดิมผ่านแท็บไม่ระบุตัวตน (Incognito) เพื่อพิสูจน์เรื่องการเช็คสถานะ Session/Token
+6. Let's talk on how this knowledge can improve our E2E test scripts
+คีย์หลักของคลิปนี้: การนำความรู้ข้างต้นมาพัฒนาสคริปต์ทดสอบ (End-to-End) ให้ฉลาดและเร็วขึ้น
+- What if we don't need to login จะเกิดอะไรขึ้นถ้าเราไม่ต้องสั่งโรบอทให้ไปนั่งกรอกฟอร์ม Login ทุกครั้ง?
+- Loading the login page takes time and resources เพราะการโหลดหน้า UI สำหรับ Login 
+มันกินเวลาและทรัพยากรระบบโดยไม่จำเป็นนั่นเอง
+
+*********************************************************************************
+
+อาไปใช้ก่อนจะเริ่ม test อะไร
+EX
+test.beforeAll(()=>{
+    //A
+    //B
+    //C
+})
+
+test.beforeEach(()=>{
+    //D
+})
+การทำงาน
+// A B C D -> Test Case1 -> D -> Test Case2 -> D -> Test Case3
+
+**************************************************************************
+
+การดึง Library request เเค่เพิ่ม ไว้ใน บรรทัดเเรกก่อนเริ่มทำงาน play wright ได้
+เวลาใช้งาน ไปประกาศ  ตัวเเปรใหม่เเล้ว ทำการ request เอา
+เเล้วจึงเรียกใช้งานคำสั่ง API ต่างๆ
+EX
+const loginData = {userEmail: "hiwale6804@alibrs.com", userPassword: "P@ssw0rd"}
+
+test.beforeAll(async ()=>{
+   const apiContext = await request.newContext()
+   const response = 
+await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login",
+{data: loginData}) //ที่ต้องประกาศ const เพราะ การยิง post มันจะทำการ request ออกต้องหาตัวรับ
+expect(response.ok()).toBeTruthy() //เอาไว้ตรวจ  status 
+
+console.log(responseJason);
+console.log("Token: " + responseJason.token);
+})
+
+
+**************************************************************************

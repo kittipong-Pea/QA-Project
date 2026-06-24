@@ -1,0 +1,17 @@
+Complete E2E flow of Placing the order and grab the OrderID with Playwright
+
+EX
+const email = "***************"
+
+ await expect(page.locator("div.user__name label")).toHaveText(email) //ใช้บ่อยเลยตั้ง const
+
+    await page.locator("input.txt").nth(1).fill("123")
+    await page.locator("input.txt").nth(2).fill("tester")
+    await page.locator(".user_address").waitFor({ state: "hidden" })//ไว้ว่อน drop down 
+    await page.locator("a.action__submit").click()
+
+    await page.waitForTimeout(5000)
+
+    //Success Landing page
+    await expect(page.locator("h1.hero-primary")).toBeVisible()
+    console.log(await page.locator("label.ng-star-inserted").textContent())

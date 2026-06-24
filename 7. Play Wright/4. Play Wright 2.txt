@@ -1,0 +1,151 @@
+Play wright
+
+.locator อย่างเดียวเลย
+.getByLable()	ตามชื่อเลย getที่เป็น label
+
+การ run test ผ่าน command line 
+ใส่ path ลงไปได้
+.only()		ทำอันที่ต้องการ
+.skip()		ข้ามไปทำอันอื่น
+
+npx playwright test --ui
+เซฟเเล้ว run ได้เรื่อยๆ
+ถ้ากดตาฟ้า watch คือทำให้เวลาเราเเก้ไขเเล้วกลับมาดู ui มันจะ run ให้ใหม่เลย
+
+EX
+
+test.only("getByLabel", async ({ page }) => {
+    await page.goto("https://rahulshettyacademy.com/angularpractice/")
+    await page.getByLabel("Check me out if you love IceCreams!").click()
+    await page.getByLabel("Student").click()
+}
+
+*********************************************************************************
+Filtering elements with GetByRole,GetByText and perform chaining methods 
+in step
+
+
+other function get selectors
+.getPlaceholder()		ข้อความในช่องว่าง
+.getByRole()			บทบาทต่างๆ
+EX button,link,etc		มีเยอะไปดูใน DOC 
+.getByText()	
+
+https://playwright.dev/docs/api/class-framelocator#frame-locator-get-by-role
+
+chaining from a locator using .filter()
+กรองหา locator อื่นๆ 
+
+EX เอาไปต่อกับ บทก่อน
+
+   	await page.getByPlaceholder("Password").fill("Password")
+    await page.getByRole("button", {name: "Submit"}).click()
+    await expect(page.getByText("This is a demo eCommerce web appplication.")).toBeVisible()
+
+    await page.getByRole("link", {name: "Shop"}).click()
+    await expect(page.locator("app-card").filter({hasText: "Samsung Note 8"})).toBeVisible()
+    await page.pause()
+
+*********************************************************************************
+How to validate if element is hidden, displayed mode with Expect assertions
+
+1.going back and forward in browser 
+- .goBack()	
+- .goForward()
+
+2.Explore hidden element 	ซ่อนอยู่เฉยๆโดยไม่ลบ	
+- style = display: none;	เวลา element ถูกซ่อน จะขึ้นเเบบนี้ ถ้าซ่อนอยู่ เราเอาไปใช้ไม่ได้
+- .toBeHidden()					เอาไว้เเค่ตรวจสอบ Hidden element 
+
+EX 1
+await page.goto("https://rahulshettyacademy.com/AutomationPractice/")
+await page.goto("https://playwright.dev/docs/input")
+await page.goBack()
+await page.goForward()
+
+EX 2
+await page.goto("https://rahulshettyacademy.com/AutomationPractice/")
+await page.locator("#hide-textbox").click()
+await expect(page.locator("#displayed-text")).toBeHidden()
+
+EX รวม
+test.only('goback and forward', async ({ page }) => {
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/")
+    await page.locator("#hide-textbox").click()
+    await expect(page.locator("#displayed-text")).toBeHidden()
+
+    // await page.goto("https://playwright.dev/docs/input")
+    // await page.goBack()
+    // await page.goForward()
+})
+
+*********************************************************************************
+How to automate  JavaJavaScript Alert popups with Playwright
+
+การรับมือ popup หรือ dialogs
+เพราะมันไม่ hilight ดังนั้นเราต้อง
+เราต้องทำการ ทำ event listener  ตัวดักทาง event 
+.on
+EX await page.on('dialog')
+
+การใช้งานกับ hover
+.hover()
+
+EX 
+
+test('popup and hover', async ({ page }) => {
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/",
+        {waitUntil: "domcontentloaded"}) // ไม่ต้องรอ resource ทั้งหมดโหลดเสร็จ
+    
+    await page.on('dialog',dialog => dialog.accept()) //or .dismiss()
+    await page.locator("#confirmbtn").click()
+
+    //hover
+    await page.locator("#mousehover").hover()
+    await page.locator("a[href='#top']").click()
+    
+})
+
+*********************************************************************************
+How to handle & Automate frames with Playwright - Example
+
+i frame
+การเอา web อื่นๆ มาใช้กับ web เรา
+
+คำสั่งรอให้โหลดเสร็จก่อน
+await page.waitForLoadState('load')           // โหลด resource ครบ (default)
+await page.waitForLoadState('domcontentloaded') // DOM พร้อม ไม่ต้องรอ image/css
+await page.waitForLoadState('networkidle')    // ไม่มี network request แล้ว 500ms
+
+เราไม่สามารถใช้ตรงๆได้เราต้องทำการ switch frame ก่อน โดยใช้คำสั่ง
+childFrame
+.frameLocator(ใส่ tag ของ i frame)
+EX
+
+test.only('i frame', async ({ page }) => {
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/")
+    const childFrame = page.frameLocator("#courses-iframe")
+    await expect(page.locator(".main-header")).toBeVisible()
+})
+
+การที่เราดึงหรือใช้งานข้อมูลใน i frame
+
+EX ใช้ไม่ได้ติดปัญหาโหลดไม่ครบ
+test.only('i frame', async ({ page }) => {
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/",
+     { waitUntil: "domcontentloaded" })
+     
+    const childFrame = page.frameLocator("#courses-iframe")
+    await expect(childFrame.locator(".main-header")).toBeVisible()
+    
+    // ✅ รอ element ที่จะ click ให้ visible ก่อน แทน waitForLoadState
+    const lifetimeLink = childFrame.locator(".main-menu [href='lifetime-access']").first()
+    await lifetimeLink.waitFor({ state: "visible" })
+    await lifetimeLink.click()
+    
+    await page.waitForTimeout(5000)
+    let number = await childFrame.locator("div.container-fluid h2").textContent()
+    number = number.split(" ")
+    console.log("Number: " + number[1])
+    
+})
