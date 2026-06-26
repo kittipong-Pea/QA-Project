@@ -1,5 +1,8 @@
 Basic Command
 
+https://git-scm.com/
+โหลด git
+
 Add Email
 
 - เพิ่ม
